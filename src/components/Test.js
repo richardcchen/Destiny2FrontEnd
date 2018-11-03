@@ -10,7 +10,9 @@ class Test extends Component {
       membershipType: -100,
       displayName: "Can't be found",
       membershipId: -100,
-      currentEquipment: []
+      currentEquipment: [],
+      equipmentFullInfo: []
+
     }
 
   }
@@ -41,6 +43,25 @@ class Test extends Component {
       })
       this.setState({
         currentEquipment: charEquip
+      })
+    })
+    .then(() => {
+      return fetch(`http://localhost:3000/api/v1/items/getItems`, {
+        method: 'POST',
+        headers: {
+          "Accept": 'application/json',
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({
+          items: this.state.currentEquipment,
+          membershipId: this.state.membershipId
+        })
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        equipmentfullInfo: data
       })
     })
   }
