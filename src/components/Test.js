@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ItemList from "./ItemList"
 const endpoint = "http://localhost:3000/api/v1/users"
 const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 
@@ -11,7 +12,7 @@ class Test extends Component {
       displayName: "Can't be found",
       membershipId: -100,
       currentEquipment: [],
-      equipmentFullInfo: []
+      equipmentShow: []
 
     }
 
@@ -61,7 +62,7 @@ class Test extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({
-        equipmentfullInfo: data
+        equipmentShow: data.data
       })
     })
   }
@@ -87,12 +88,12 @@ class Test extends Component {
   }
 
   render(){
-    console.log(this.state);
     return(
       <div>
         <h3>Welcome {this.state.displayName}</h3>
         <button onClick={this.getItems}>Get Items </button>
         <button onClick={this.login}>login</button>
+        <ItemList  equipmentShow={this.state.equipmentShow} />
       </div>
     )
   }
