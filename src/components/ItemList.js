@@ -12,7 +12,6 @@ render(){
   console.log(this.props);
   return(
     <div>
-      <h4>Item Section</h4>
       <Card.Group id="items" itemsPerRow={8}>
         {this.props.equipmentShow.map(item => <Item item={item}/>)}
       </Card.Group>

@@ -36,12 +36,19 @@ class Test extends Component {
   }
 
   getItems = () => {
-    fetch(`https://www.bungie.net/Platform/Destiny2/${this.state.membershipType}/Profile/${this.state.membershipId}/Character/${this.state.characterIds[0]}/?components=205`, {headers: {'X-API-KEY': apiKey}})
+    fetch(`https://www.bungie.net/Platform/Destiny2/${this.state.membershipType}/Profile/${this.state.membershipId}/Character/${this.state.characterIds[0]}/?components=201,205`, {headers: {'X-API-KEY': apiKey}})
     .then(response => response.json())
     .then(data => {
-      const charEquip = data.Response.equipment.data.items.map(item => {
+
+      let charEquip = data.Response.equipment.data.items.map(item => {
         return ({itemHash: item.itemHash, itemInstanceId: item.itemInstanceId, bucketHash: item.bucketHash})
       })
+      const charInv = data.Response.inventory.data.items.map(item => {
+        return ({itemHash: item.itemHash, itemInstanceId: item.itemInstanceId, bucketHash: item.bucketHash})
+      })
+      charEquip = [...charEquip, ...charInv]
+      console.log("charInv:", charInv)
+      console.log("charEquip", charEquip);
       this.setState({
         currentEquipment: charEquip
       })
