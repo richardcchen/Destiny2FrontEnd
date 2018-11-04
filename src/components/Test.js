@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import ItemList from "./ItemList"
+import Filter from "./Filter"
 const endpoint = "http://localhost:3000/api/v1/users"
 const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
+
 
 class Test extends Component {
   constructor(props){
@@ -12,7 +14,8 @@ class Test extends Component {
       displayName: "Can't be found",
       membershipId: -100,
       currentEquipment: [],
-      equipmentShow: []
+      equipmentShow: [],
+      filteredEquipment: []
 
     }
 
@@ -69,10 +72,20 @@ class Test extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({
-        equipmentShow: data.data
+        equipmentShow: data.data,
+        filteredEquipment: data.data
       })
     })
   }
+
+
+  handleFilter = (event) => {
+    const filteredEquipment = this.state.equipmentShow.filter(item => {
+      return item.invObj.name.toLowerCase().includes(event.target.value.toLowerCase())
+    })
+    this.setState({filteredEquipment})
+  }
+
 
   login = () => {
     fetch(`${endpoint}/login`,
@@ -94,13 +107,19 @@ class Test extends Component {
     )
   }
 
+
   render(){
     return(
       <div>
         <h3>Welcome {this.state.displayName}</h3>
-        <button onClick={this.getItems}>Get Items </button>
-        <button onClick={this.login}>login</button>
-        <ItemList  equipmentShow={this.state.equipmentShow} />
+        <div>
+          <button onClick={this.getItems}>Get Items </button>
+          <button onClick={this.login}>login</button>
+        </div>
+        <br />
+        <Filter handleFilter={this.handleFilter}/>
+        <br />
+        <ItemList  equipmentShow={this.state.filteredEquipment} />
       </div>
     )
   }
