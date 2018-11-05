@@ -12,15 +12,15 @@ render(){
   // console.log(this.props);
   const panes = [
     { menuItem: 'Character 1', render: () =>
-      <Card.Group id="items" itemsPerRow={8}>
-        {this.props.equipmentShow.map(item => <Item item={item}/>)}
-      </Card.Group>
+        <Card.Group id="items" itemsPerRow={8}>
+          {this.props.equipmentShow.map(item => <Item item={item}/>)}
+        </Card.Group>
     },
     { menuItem: 'Character 2', render: () => <p>Character 2</p> },
   ]
   return(
     <div>
-      <Tab panes={panes} />
+      <Tab menu={{ pointing: true }} panes={panes} />
     </div>
   )
 }

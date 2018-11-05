@@ -22,7 +22,7 @@ class Test extends Component {
   }
 
   componentDidMount(){
-    fetch("https://www.bungie.net/Platform/Destiny2/4/Profile/4611686018473254938/?components=100,104", {
+    fetch("https://www.bungie.net/Platform/Destiny2/4/Profile/4611686018473254938/?components=100", {
       headers: {
         'X-API-KEY': apiKey
       }
