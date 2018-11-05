@@ -9,7 +9,6 @@ class Item extends Component {
   }
 
   render(){
-    // debugger
     return(
         <Card>
 

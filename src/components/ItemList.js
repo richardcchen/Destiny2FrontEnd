@@ -9,12 +9,14 @@ class ItemList extends Component {
   }
 
 render(){
-  // console.log(this.props);
   const panes = [
     { menuItem: 'Character 1', render: () =>
+      (this.props.equipmentShow) ?
         <Card.Group id="items" itemsPerRow={8}>
           {this.props.equipmentShow.map(item => <Item item={item}/>)}
         </Card.Group>
+        :
+        null
     },
     { menuItem: 'Character 2', render: () => <p>Character 2</p> },
   ]
