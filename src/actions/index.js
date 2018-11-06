@@ -4,12 +4,20 @@ const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 export const FETCH_USER = 'FETCH_USER'
 export const FETCH_EQUIPMENT = 'FETCH_EQUIPMENT'
 export const SHOW_FILTERED = 'SHOW_FILTERED'
-  const membershipType = "4"
-  const membershipId = "4611686018473254938"
+const membershipType = "4"
+const membershipId = "4611686018473254938"
+export const USERNAME = 'USERNAME'
+export const PASSWORD = 'PASSWORD'
+export const MEMBERSHIP_TYPE = 'MEMBERSHIP_TYPE'
 
 
-export function fetchUser() {
-  return (dispatch) => { fetch(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=100`, {
+export function fetchUser(username, password, system) {
+  return (dispatch) => {
+    dispatch({type: USERNAME, payload: username})
+    dispatch({type: PASSWORD, payload: password})
+    dispatch({type: MEMBERSHIP_TYPE, payload: system})
+
+     fetch(`https://www.bungie.net/Platform/Destiny2/${membershipType}/Profile/${membershipId}/?components=100`, {
       headers: {
         'X-API-KEY': apiKey
       }

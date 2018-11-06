@@ -8,14 +8,21 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './reducers';
+import { BrowserRouter, Route} from 'react-router-dom'
+import Login from "./Redux/Login"
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
+
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
+    <BrowserRouter>
+      <div>
+        <Route path="/" component={Login} />
+      </div>
+  </BrowserRouter>
   </Provider>
   , document.querySelector('.container'));
 

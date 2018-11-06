@@ -54,7 +54,7 @@ class ReduxTest extends Component {
 
 function mapStatetoProps(state) {
   return {
-    user: state.user,
+    user: state.user.user,
     equipment: state.equipment.equipment,
     filtered: state.filtered.filtered
   }
