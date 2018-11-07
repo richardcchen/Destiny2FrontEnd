@@ -2,6 +2,7 @@ import React from 'react';
 import {Component} from 'react'
 import { connect } from 'react-redux'
 import Welcome from './Welcome'
+import Stats from '../components/Stats'
 
 
 
@@ -13,6 +14,7 @@ class Profile extends Component {
     return (
       <div>
         {(this.props.user) ? <Welcome user={this.props.user} /> : null}
+        {<Stats type={this.props.type} id={this.props.id}/>}
       </div>
     )
   }

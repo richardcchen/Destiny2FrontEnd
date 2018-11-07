@@ -58,7 +58,12 @@ class Adapter {
     })
   )}
 
-
+  static getProfileInfo = (id, type) => {
+    return (
+      fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Account/${id}/Stats/`, {headers: {'X-API-KEY': apiKey}})
+      .then(res => res.json())
+    )
+  }
 
 } //end of class
 

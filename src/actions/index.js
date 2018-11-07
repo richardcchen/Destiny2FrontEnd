@@ -15,6 +15,7 @@ export const MEMBERSHIP_TYPE = 'MEMBERSHIP_TYPE'
 export const MEMBERSHIP_ID = "MEMBERSHIP_ID"
 export const CHARACTER_IDS = "CHARACTER_IDS"
 export const LOAD_FILTERED = 'LOAD_FILTERED'
+export const USER_STATS = 'USER_STATS'
 
 
 export function fetchUser(username, password, system) {
@@ -35,6 +36,10 @@ export function fetchUser(username, password, system) {
       return id
     })
     .then(id => {
+      Adapter.getProfileInfo(id, system)
+      .then(data => {
+        dispatch({type: USER_STATS, payload: data.Response})
+      })
       return (fetch(`https://www.bungie.net/Platform/Destiny2/${system}/Profile/${id}/?components=100`, {
         headers: {
           'X-API-KEY': apiKey
@@ -46,6 +51,10 @@ export function fetchUser(username, password, system) {
       dispatch({ type: FETCH_USER, payload: data })
     })
   }
+}
+
+export function addUser(userObj){
+  debugger
 }
 
 export function fetchEquipment(userObj, id, type){

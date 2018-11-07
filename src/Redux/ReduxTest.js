@@ -57,6 +57,6 @@ function mapStatetoProps(state) {
     filtered: state.filtered.filtered
   }
 }
-
+ //PROMISE.ALL, DEBOUNCE
 
 export default connect(mapStatetoProps, {fetchUser, fetchEquipment, showFiltered})(ReduxTest)
