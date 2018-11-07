@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import {Button, Form} from 'semantic-ui-react'
 import SystemSelect from '../components/SystemSelect'
+import { Redirect } from 'react-router-dom';
 import { fetchUser } from '../actions/index'
 
 
@@ -11,7 +12,8 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      system: "none"
+      system: "none",
+      isClicked: false
     }
   }
 
@@ -21,35 +23,44 @@ class Login extends Component {
     })
   }
 
-  onDropDownChange = (event) => {
+  onDropDownChange = (event, obj) => {
     this.setState({
-      system: event.target.textContent
+      system: obj.value
     })
   }
 
-  onSubmit = () => {
+  redirect = () => {
+    if (this.state.isClicked){
+      return <Redirect to="/profile" />
+    }
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault()
     this.props.fetchUser(this.state.username, this.state.password, this.state.system)
+    this.setState({isClicked: true})
   }
 
   render() {
-    console.log(this.state)
     return (
-      <Form id="login-form" onSubmit={this.onSubmit}>
-        <Form.Field>
-          <label>Username</label>
-          <input name="username" onChange={this.onChange} placeholder='Username' />
-        </Form.Field>
-        <Form.Field>
-          <label>Password</label>
-          <input name="password" onChange={this.onChange} placeholder='Password' />
-        </Form.Field>
-        <Form.Field>
-          <SystemSelect onChange={this.onDropDownChange}/>
-        </Form.Field>
-        <Button type='submit'>Submit</Button>
-      </Form>
+      <div>
+        {this.redirect()}
+        <Form id="login-form" onSubmit={this.onSubmit}>
+          <Form.Field>
+            <label>Username</label>
+            <input name="username" onChange={this.onChange} placeholder='Username' />
+          </Form.Field>
+          <Form.Field>
+            <label>Password</label>
+            <input name="password" onChange={this.onChange} placeholder='Password' />
+          </Form.Field>
+          <Form.Field>
+            <SystemSelect onChange={this.onDropDownChange}/>
+          </Form.Field>
+          <Button type='submit'>Submit</Button>
+        </Form>
+      </div>
     )
-
   }
 }
 

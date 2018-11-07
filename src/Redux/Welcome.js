@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ReduxTest from "./ReduxTest"
 
+
 const Welcome = (props) => {
 
   const characterIds = () => {

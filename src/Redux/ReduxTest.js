@@ -1,8 +1,6 @@
 import React from 'react';
 import {Component} from 'react'
-import FilterRedux from './FilterRedux'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { fetchUser, fetchEquipment, showFiltered} from '../actions/index'
 import ItemList from '../components/ItemList'
 import Welcome from './Welcome'
@@ -54,7 +52,7 @@ class ReduxTest extends Component {
 
 function mapStatetoProps(state) {
   return {
-    user: state.user.user,
+    user: state.user.userObj,
     equipment: state.equipment.equipment,
     filtered: state.filtered.filtered
   }
