@@ -33,6 +33,15 @@ class Adapter {
     }))
   }
 
+  static getUser(){
+    fetch(`http://localhost:3000/api/v1/users/login`)
+  }
+
+  static receivedToken(){
+    fetch(`http://localhost:8000/api/v1/users/receivedToken`)
+    debugger
+  }
+
   static getVaultItems(id, type){
   return (
     fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/?components=102`, {headers: {'X-API-KEY': apiKey}})

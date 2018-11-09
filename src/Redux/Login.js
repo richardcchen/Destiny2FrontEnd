@@ -4,6 +4,8 @@ import {Button, Form} from 'semantic-ui-react'
 import SystemSelect from '../components/SystemSelect'
 import { Redirect } from 'react-router-dom';
 import { fetchUser } from '../actions/index'
+import Adapter from '../Adapter'
+import { ComponentType } from 'the-traveler/build/enums'
 
 
 class Login extends Component {
@@ -40,6 +42,8 @@ class Login extends Component {
     this.props.fetchUser(this.state.username, this.state.password, this.state.system)
     this.setState({isClicked: true})
   }
+
+
 
   render() {
     return (

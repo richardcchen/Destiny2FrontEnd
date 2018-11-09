@@ -5,6 +5,7 @@
   "dependencies": {
     "ajv": "^6.5.5",
     "axios": "^0.18.0",
+    "es6-promise": "^4.2.5",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.0",
@@ -14,6 +15,7 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.83.0",
+    "the-traveler": "^0.7.3",
     "thunk": "0.0.1"
   },
   "scripts": {

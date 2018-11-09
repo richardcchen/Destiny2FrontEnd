@@ -3,6 +3,7 @@ import {Component} from 'react'
 import { connect } from 'react-redux'
 import Welcome from './Welcome'
 import Stats from '../components/Stats'
+import {Button} from 'semantic-ui-react'
 
 
 
