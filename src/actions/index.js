@@ -49,6 +49,10 @@ export function fetchUser(username, password, system) {
     .then(res => res.json())
     .then(data => {
       dispatch({ type: FETCH_USER, payload: data })
+      return (data.Response.profile.data)
+    })
+    .then(userObj => {
+      Adapter.updateUser(userObj)
     })
   }
 }

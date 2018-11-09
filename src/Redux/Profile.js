@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Welcome from './Welcome'
 import Stats from '../components/Stats'
 import {Button} from 'semantic-ui-react'
+import Adapter from '../Adapter'
 
 
 

@@ -8,6 +8,7 @@ import Adapter from '../Adapter'
 import { ComponentType } from 'the-traveler/build/enums'
 
 
+
 class Login extends Component {
   constructor(){
     super()
@@ -68,5 +69,12 @@ class Login extends Component {
   }
 }
 
+function mapStatetoProps(state) {
+  return {
+    user: state.user.userObj,
+    membership_type: state.user.membership_type,
+    membership_id: state.user.membership_id,
+  }
+}
 
-export default connect(null, {fetchUser})(Login)
+export default connect(mapStatetoProps, {fetchUser})(Login)

@@ -33,8 +33,15 @@ class Adapter {
     }))
   }
 
-  static getUser(){
-    fetch(`http://localhost:3000/api/v1/users/login`)
+  static updateUser(userObj){
+    fetch(`http://localhost:3000/api/v1/users/login`, {
+      method: 'POST',
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({userObj})
+    })
   }
 
   static receivedToken(){
