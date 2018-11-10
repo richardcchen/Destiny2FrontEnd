@@ -16,7 +16,9 @@ export const MEMBERSHIP_ID = "MEMBERSHIP_ID"
 export const CHARACTER_IDS = "CHARACTER_IDS"
 export const LOAD_FILTERED = 'LOAD_FILTERED'
 export const USER_STATS = 'USER_STATS'
-
+export const FRIENDS_LIST = 'FRIENDS_LIST'
+export const FRIEND_OBJ = 'FRIEND_OBJ'
+export const FRIEND_STATS = 'FRIEND_STATS'
 
 export function fetchUser(username, password, system) {
   return (dispatch) => {
@@ -24,12 +26,7 @@ export function fetchUser(username, password, system) {
     dispatch({type: USERNAME, payload: urlUsername})
     dispatch({type: PASSWORD, payload: password})
     dispatch({type: MEMBERSHIP_TYPE, payload: system})
-    fetch(`https://www.bungie.net/Platform/Destiny2/SearchDestinyPlayer/-1/${urlUsername}/`, {
-      headers: {
-        'X-API-KEY': apiKey
-      }
-    })
-    .then(response => response.json())
+    Adapter.getProfileName(username)
     .then(data => {
       const id = data.Response[0].membershipId
       dispatch({type: MEMBERSHIP_ID, payload: id})
@@ -40,25 +37,43 @@ export function fetchUser(username, password, system) {
       .then(data => {
         dispatch({type: USER_STATS, payload: data.Response})
       })
-      return (fetch(`https://www.bungie.net/Platform/Destiny2/${system}/Profile/${id}/?components=100`, {
-        headers: {
-          'X-API-KEY': apiKey
-        }
-      }))
+      return (Adapter.getUserObj(id, system))
     })
-    .then(res => res.json())
     .then(data => {
       dispatch({ type: FETCH_USER, payload: data })
       return (data.Response.profile.data)
     })
     .then(userObj => {
       Adapter.updateUser(userObj)
+      return (Adapter.getFriends(userObj))
+    })
+    .then(data => {
+      dispatch({type: FRIENDS_LIST, payload: data.data})
     })
   }
 }
 
-export function addUser(userObj){
-  debugger
+export function loadFriendsList(userObj){
+  return(dispatch) => {
+    Adapter.getFriends(userObj)
+    .then(data => {
+      dispatch({type: FRIENDS_LIST, payload: data.data})
+    })
+  }
+}
+
+export function friendShow(id, system){
+  return (dispatch) => {
+
+    Adapter.getProfileInfo(id, system)
+    .then(data => {
+      dispatch({type: FRIEND_STATS, payload: data.Response})
+      return (Adapter.getUserObj(id, system))
+    })
+    .then(data => {
+      dispatch({type:FRIEND_OBJ, payload: data.Response.profile.data})
+    })
+  }
 }
 
 export function fetchEquipment(userObj, id, type){

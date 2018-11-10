@@ -2,7 +2,6 @@ import React from 'react'
 import {Table} from 'semantic-ui-react'
 
 const Stat_Table = ({statsObj, userObj}) => {
-  console.log("userObj", userObj)
   const PvP_Header = statsObj.mergedAllCharacters.results.allPvP
   return (
   <Table definition>

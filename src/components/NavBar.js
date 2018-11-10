@@ -33,6 +33,13 @@ class NavBar extends Component {
             onClick={this.handleItemClick}
           />
         </NavLink>
+        <NavLink exact to="/friends">
+          <Menu.Item
+            name='friends'
+            active={activeItem === 'http://localhost:3001/friends'}
+            onClick={this.handleItemClick}
+          />
+        </NavLink>
         <Menu.Item
             name='logout'
             active={activeItem === 'logout'}
