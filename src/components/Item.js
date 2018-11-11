@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import { Card, Icon, Button, Label, Image, Modal, Header } from 'semantic-ui-react';
 import ItemList from './ItemList'
+import ItemComment from './ItemComment'
 const bungie = 'http://www.bungie.net'
 
 class Item extends Component {
   constructor(props){
     super(props)
+    this.state = {commentOn: false}
+  }
+
+  commentOn = () => {
+    this.setState({commentOn: !this.state.commentOn})
+  }
+
+  getComment = (comment) => {
+    console.log("comment", comment)
+    console.log("item", this.props.item);
+    debugger
   }
 
   render(){
@@ -20,6 +32,8 @@ class Item extends Component {
                 <p>{this.props.item.bucketObj.name}</p>
                 <p>{this.props.item.invObj.itemTypeAndTierDisplayName}</p>
                 <p>{this.props.item.invObj.description}</p>
+                <Button onClick={this.commentOn}>Drop a Comment!</Button>
+                {(this.state.commentOn) ? <ItemComment getComment={this.getComment} />: null}
               </Modal.Description>
             </Modal.Content>
           </Modal>
