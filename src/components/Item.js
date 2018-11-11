@@ -26,7 +26,8 @@ class Item extends Component {
           <Card.Content>
             <Card.Header>{this.props.item.invObj.name}</Card.Header>
             <Card.Meta>
-              <span className='date'>{this.props.item.invObj.itemTypeAndTierDisplayName}</span>
+              <div className='date'>{this.props.item.invObj.itemTypeAndTierDisplayName}</div>
+              <div className='date'>{this.props.item.instanceObj.level}</div>
             </Card.Meta>
           </Card.Content>
         </Card>

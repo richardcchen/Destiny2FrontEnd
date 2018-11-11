@@ -85,21 +85,19 @@ class Adapter {
       })
       .then(equipment => {
         return (
-          this.searchManifest(equipment)
+          this.searchManifest(equipment, id, type)
       )})
       .then(res => res.json()))
     }
 
-    static searchManifest(items){
+    static searchManifest(items, id, system){
       return (fetch(`http://localhost:3000/api/v1/items/getItems`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
           "Content-Type": 'application/json'
         },
-        body: JSON.stringify({
-          items: items
-        })
+        body: JSON.stringify({items, id, system})
       }))
     }
 
@@ -120,7 +118,7 @@ class Adapter {
         if (JSON.stringify(equipment) === "{}"){
           return "{}"
         } else {
-          return (this.searchManifest(equipment))
+          return (this.searchManifest(equipment, id, type))
         }
       })
       .then(res => {
