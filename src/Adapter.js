@@ -101,6 +101,18 @@ class Adapter {
       }))
     }
 
+    static searchManifest2(items, id, system){
+      // debugger
+      return (fetch(`http://localhost:3000/api/v1/items/getVault`, {
+        method: 'POST',
+        headers: {
+          "Accept": 'application/json',
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({items, id, system})
+      }))
+    }
+
 
 
   static getVaultItems(id, type){
@@ -118,7 +130,7 @@ class Adapter {
         if (JSON.stringify(equipment) === "{}"){
           return "{}"
         } else {
-          return (this.searchManifest(equipment, id, type))
+          return (this.searchManifest2(equipment, id, type))
         }
       })
       .then(res => {
