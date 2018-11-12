@@ -16,7 +16,8 @@ class Login extends Component {
       username: '',
       password: '',
       system: "none",
-      isClicked: false
+      isClicked: false,
+      createAccount: false
     }
   }
 
@@ -44,6 +45,12 @@ class Login extends Component {
     this.setState({isClicked: true})
   }
 
+  makeAccount = () => {
+    this.setState({createAccount: true})
+    if (this.state.createAccount){
+      return <Redirect to="/newaccount" />
+    }
+  }
 
 
   render() {
@@ -57,13 +64,17 @@ class Login extends Component {
           </Form.Field>
           <Form.Field>
             <label>Password</label>
-            <input name="password" onChange={this.onChange} placeholder='Password' />
+            <input type="password" name="password" onChange={this.onChange} placeholder='Password' />
           </Form.Field>
           <Form.Field>
             <SystemSelect onChange={this.onDropDownChange}/>
           </Form.Field>
           <Button type='submit'>Submit</Button>
         </Form>
+      <br/>
+      <br/>
+        <Button onClick={this.makeAccount}>Create Account</Button>
+        {(this.state.createAccount) ? <Redirect to="/newaccount" /> : null}
       </div>
     )
   }
