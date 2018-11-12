@@ -1,5 +1,6 @@
 const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 
+
 class Adapter {
   static getProfileName(username){
     const urlUsername = encodeURIComponent(username)
@@ -36,6 +37,17 @@ class Adapter {
           "Content-Type": 'application/json'
         },
         body: JSON.stringify({userObj})
+      })
+    }
+
+    static createUser(username, newUserId, newUserCharArray, system){
+      fetch(`http://localhost:3000/api/v1/users/createuser`, {
+        method: 'POST',
+        headers: {
+          "Accept": 'application/json',
+          "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({username, newUserId, newUserCharArray, system})
       })
     }
 
@@ -160,8 +172,16 @@ class Adapter {
     }).then(res =>res.json())
   }
 
-
-
+  static checkUserDB(username){
+    return fetch(`http://localhost:3000/api/v1/users/checkuser`, {
+      method: 'POST',
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({username})
+    }).then(res =>res.json())
+  }
 
 } //end of class
 
