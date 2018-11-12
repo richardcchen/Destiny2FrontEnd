@@ -73,6 +73,7 @@ class Adapter {
 
     static getCharItems(char_num, userObj, id, type){
       const charIds = userObj.characterIds
+      // console.log("charIds", charIds);
       return (
       fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/Character/${charIds[char_num]}/?components=201,205`, {headers: {'X-API-KEY': apiKey}})
       .then(res => res.json())

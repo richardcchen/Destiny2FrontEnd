@@ -6,7 +6,9 @@ import Adapter from '../Adapter'
 import Search from '../components/Search'
 import Stat_Table from '../components/Stat_Table'
 import FriendsList from './FriendsList'
-import {friendShow, loadFriendsList} from '../actions/index'
+import FriendEquipment from './FriendEquipment'
+import {friendShow, loadFriendsList, fetchFriendEquipment} from '../actions/index'
+
 
 
 
@@ -41,9 +43,9 @@ class Friends extends Component {
         <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
         <br/>
         <button onClick={this.addFriend}>Add Friend </button>
-
         {(this.props.friendObj) ? <Stat_Table statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null}
         <FriendsList />
+        <FriendEquipment />
       </div>
     )
   }
@@ -61,4 +63,4 @@ function mapStatetoProps(state) {
   }
 }
 
-export default connect(mapStatetoProps, {friendShow, loadFriendsList})(Friends)
+export default connect(mapStatetoProps, {friendShow, loadFriendsList, fetchFriendEquipment})(Friends)

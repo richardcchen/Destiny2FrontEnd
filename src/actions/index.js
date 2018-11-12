@@ -19,6 +19,12 @@ export const USER_STATS = 'USER_STATS'
 export const FRIENDS_LIST = 'FRIENDS_LIST'
 export const FRIEND_OBJ = 'FRIEND_OBJ'
 export const FRIEND_STATS = 'FRIEND_STATS'
+export const FRIEND_EQUIPMENT_1 = 'FRIEND_EQUIPMENT_1'
+export const FRIEND_EQUIPMENT_2 = 'FRIEND_EQUIPMENT_2'
+export const FRIEND_EQUIPMENT_3 = 'FRIEND_EQUIPMENT_3'
+export const FRIEND_FILTERED = 'FRIEND_FILTERED'
+export const FRIEND_ALL_ITEMS = 'FRIEND_ALL_ITEMS'
+export const CLEAR_FRIEND = 'CLEAR_FRIEND'
 
 export function fetchUser(username, password, system) {
   return (dispatch) => {
@@ -64,7 +70,6 @@ export function loadFriendsList(userObj){
 
 export function friendShow(id, system){
   return (dispatch) => {
-
     Adapter.getProfileInfo(id, system)
     .then(data => {
       dispatch({type: FRIEND_STATS, payload: data.Response})
@@ -72,6 +77,38 @@ export function friendShow(id, system){
     })
     .then(data => {
       dispatch({type:FRIEND_OBJ, payload: data.Response.profile.data})
+      const friendObj = data.Response.profile.data
+      const friendId = friendObj.userInfo.membershipId
+      const friendSystem = friendObj.userInfo.membershipType
+      const numOfChars = friendObj.characterIds.length
+      dispatch({ type: CLEAR_FRIEND})
+      Adapter.getCharItems(0, friendObj, friendId, friendSystem)
+      .then(equipShow => {
+        dispatch({ type: FRIEND_EQUIPMENT_1, payload: equipShow})
+        dispatch({ type: FRIEND_FILTERED, payload: equipShow})
+        dispatch({ type: FRIEND_ALL_ITEMS, payload: equipShow})
+      })
+      if (numOfChars > 1){
+        Adapter.getCharItems(1, friendObj, friendId, friendSystem)
+        .then(equipShow2 => {
+          dispatch({ type: FRIEND_EQUIPMENT_2, payload: equipShow2})
+          dispatch({ type: FRIEND_FILTERED, payload: equipShow2})
+          dispatch({ type: FRIEND_ALL_ITEMS, payload: equipShow2})
+
+        })
+      } else {
+        dispatch({ type: FRIEND_EQUIPMENT_2, payload: {}})
+      }
+      if (numOfChars > 2){
+        Adapter.getCharItems(2, friendObj, friendId, friendSystem)
+        .then(equipShow3 => {
+          dispatch({ type: FRIEND_EQUIPMENT_3, payload: equipShow3})
+          dispatch({ type: FRIEND_FILTERED, payload: equipShow3})
+          dispatch({ type: FRIEND_ALL_ITEMS, payload: equipShow3})
+        })
+      } else {
+        dispatch({ type: FRIEND_EQUIPMENT_3, payload: {}})
+      }
     })
   }
 }
@@ -92,14 +129,14 @@ export function fetchEquipment(userObj, id, type){
         //   dispatch({ type: ALL_ITEMS, payload: equipShow})
         }})
         .then(() => {
-          Adapter.getCharItems(1, userObj, id, type)
+          Adapter.getCharItems(0, userObj, id, type)
           .then(equipShow => {
             dispatch({ type: FETCH_EQUIPMENT_2, payload: equipShow})
             dispatch({ type: LOAD_FILTERED, payload: equipShow})
             dispatch({ type: ALL_ITEMS, payload: equipShow})
           })
         }).then(() => {
-          Adapter.getCharItems(2, userObj, id, type)
+          Adapter.getCharItems(1, userObj, id, type)
           .then(equipShow => {
             dispatch({ type: FETCH_EQUIPMENT_3, payload: equipShow})
             dispatch({ type: LOAD_FILTERED, payload: equipShow})
@@ -112,7 +149,7 @@ export function fetchEquipment(userObj, id, type){
         //     dispatch({ type: FETCH_VAULT, payload: equipShow})
         //     dispatch({ type: ALL_ITEMS, payload: equipShow})
         //     dispatch({ type: LOAD_FILTERED, payload: equipShow})
-          Adapter.getCharItems(0, userObj, id, type)
+          Adapter.getCharItems(2, userObj, id, type)
           .then(equipShow => {
             dispatch({ type: FETCH_EQUIPMENT, payload: equipShow})
             dispatch({ type: LOAD_FILTERED, payload: equipShow})
@@ -121,6 +158,34 @@ export function fetchEquipment(userObj, id, type){
     })
   )}
 }
+
+export function fetchFriendEquipment(friendObj, id, type){
+  return (dispatch) => {
+    return (
+          Adapter.getCharItems(1, friendObj, id, type)
+          .then(equipShow => {
+            dispatch({ type: FETCH_EQUIPMENT_2, payload: equipShow})
+            dispatch({ type: LOAD_FILTERED, payload: equipShow})
+            dispatch({ type: ALL_ITEMS, payload: equipShow})
+          }).then(() => {
+          Adapter.getCharItems(2, friendObj, id, type)
+          .then(equipShow => {
+            dispatch({ type: FETCH_EQUIPMENT_3, payload: equipShow})
+            dispatch({ type: LOAD_FILTERED, payload: equipShow})
+            dispatch({ type: ALL_ITEMS, payload: equipShow})
+          })
+        }).then(() => {
+          Adapter.getCharItems(0, friendObj, id, type)
+          .then(equipShow => {
+            dispatch({ type: FETCH_EQUIPMENT, payload: equipShow})
+            dispatch({ type: LOAD_FILTERED, payload: equipShow})
+            dispatch({ type: ALL_ITEMS, payload: equipShow})
+          })
+    })
+  )}
+}
+
+
 
 export function showFiltered(equipment){
   return (dispatch) => {

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Card, Icon, Button, Label, Image, Modal, Header } from 'semantic-ui-react';
 import ItemList from './ItemList'
 import ItemComment from './ItemComment'
+import Adapter from '../Adapter'
 const bungie = 'http://www.bungie.net'
+
 
 class Item extends Component {
   constructor(props){
@@ -17,7 +19,7 @@ class Item extends Component {
   getComment = (comment) => {
     console.log("comment", comment)
     console.log("item", this.props.item);
-    debugger
+
   }
 
   render(){
