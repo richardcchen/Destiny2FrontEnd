@@ -8,10 +8,27 @@ class EachFeed extends Component {
 
   eachFeed = (eachFeed) => {
     return (
-      <Feed.Event>
-        <Feed.User style={{fontSize: "15px"}}>{eachFeed.commenterName}</Feed.User>
-        <Feed.Extra images><img class="resize" src={eachFeed.itemUrl}/></Feed.Extra>
-      </Feed.Event>
+      // <Feed.Event>
+      //   <Feed.Summary>
+      //     <Feed.User style={{fontSize: "15px"}}>{eachFeed.commenterName}</Feed.User>
+      //   </Feed.Summary>
+      //   <Feed.Extra images><img class="resize" src={eachFeed.itemUrl}/></Feed.Extra>
+      // </Feed.Event>
+<Feed.Event>
+  <Feed.Content>
+      <Feed.Label>
+        <img src={eachFeed.iconUrl}/>
+    </Feed.Label>
+     <Feed.Summary>
+       {eachFeed.commenterName} commented on {eachFeed.itemName}
+     </Feed.Summary>
+      <Feed.Extra text>
+        <i>{eachFeed.comment}</i>
+      </Feed.Extra>
+     <Feed.Meta>
+     </Feed.Meta>
+   </Feed.Content>
+ </Feed.Event>
     )
   }
 
