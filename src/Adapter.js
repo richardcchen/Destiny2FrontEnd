@@ -28,8 +28,6 @@ class Adapter {
       )
     }
 
-
-
     static updateUser(userObj){
       fetch(`http://localhost:3000/api/v1/users/login`, {
         method: 'POST',
@@ -114,8 +112,6 @@ class Adapter {
       }))
     }
 
-
-
   static getVaultItems(id, type){
     return (
       fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/?components=102`, {headers: {'X-API-KEY': apiKey}})
@@ -141,6 +137,29 @@ class Adapter {
       })
     )
   }
+
+  static saveComment(comment, item, user, owner){
+    return (fetch(`http://localhost:3000/api/v1/items/leaveComment`, {
+      method: 'POST',
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({comment, item, user, owner})
+    }))
+  }
+
+  static fetchFeed(id){
+    return fetch(`http://localhost:3000/api/v1/users/feed`, {
+      method: 'POST',
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({id})
+    }).then(res =>res.json())
+  }
+
 
 
 

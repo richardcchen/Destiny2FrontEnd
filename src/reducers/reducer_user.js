@@ -1,4 +1,4 @@
-import { FETCH_USER, USERNAME, PASSWORD, MEMBERSHIP_TYPE, MEMBERSHIP_ID, USER_STATS, FRIENDS_LIST, FRIEND_STATS, FRIEND_OBJ} from '../actions/index'
+import { FETCH_USER, USERNAME, PASSWORD, MEMBERSHIP_TYPE, MEMBERSHIP_ID, USER_STATS, FRIENDS_LIST, FRIEND_STATS, FRIEND_OBJ, FETCH_FEED} from '../actions/index'
 
 export default function UserReducer(state = {}, action) {
   switch(action.type){
@@ -20,7 +20,8 @@ export default function UserReducer(state = {}, action) {
       return {...state, friends_stats: action.payload}
     case FRIEND_OBJ:
       return {...state, friends_obj: action.payload}
-
+    case FETCH_FEED:
+      return {...state, feed: action.payload}
     default:
       return state
   }

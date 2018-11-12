@@ -3,6 +3,7 @@ import { Card, Icon, Button, Label, Image, Modal, Header } from 'semantic-ui-rea
 import ItemList from './ItemList'
 import ItemComment from './ItemComment'
 import Adapter from '../Adapter'
+import { connect } from 'react-redux'
 const bungie = 'http://www.bungie.net'
 
 
@@ -19,6 +20,7 @@ class Item extends Component {
   getComment = (comment) => {
     console.log("comment", comment)
     console.log("item", this.props.item);
+    Adapter.saveComment(comment, this.props.item, this.props.user, this.props.friend)
 
   }
 
@@ -52,4 +54,11 @@ class Item extends Component {
   }
 }
 
-export default Item
+function mapStatetoProps(state) {
+  return {
+    user: state.user.userObj,
+    friend: state.user.friends_obj
+  }
+}
+
+export default connect(mapStatetoProps)(Item)

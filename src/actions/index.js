@@ -25,6 +25,7 @@ export const FRIEND_EQUIPMENT_3 = 'FRIEND_EQUIPMENT_3'
 export const FRIEND_FILTERED = 'FRIEND_FILTERED'
 export const FRIEND_ALL_ITEMS = 'FRIEND_ALL_ITEMS'
 export const CLEAR_FRIEND = 'CLEAR_FRIEND'
+export const FETCH_FEED = 'FETCH_FEED'
 
 export function fetchUser(username, password, system) {
   return (dispatch) => {
@@ -52,10 +53,19 @@ export function fetchUser(username, password, system) {
     .then(userObj => {
       Adapter.updateUser(userObj)
       return (Adapter.getFriends(userObj))
-    })
-    .then(data => {
-      dispatch({type: FRIENDS_LIST, payload: data.data})
-    })
+      })
+        .then(data => {
+          dispatch({type: FRIENDS_LIST, payload: data.data})
+        })
+  }
+}
+
+export function fetchFeed(id){
+  return (dispatch) => {
+      Adapter.fetchFeed(id)
+        .then(data => {
+          dispatch({type: FETCH_FEED, payload: data.data})
+        })
   }
 }
 

@@ -16,7 +16,6 @@ class FriendsList extends Component {
   }
 
   render(){
-    console.log(this.props.friends_list);
     return (
       <div>
         <h1>FriendsList</h1>
