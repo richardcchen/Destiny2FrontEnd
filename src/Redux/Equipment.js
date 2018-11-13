@@ -5,9 +5,17 @@ import { fetchUser, fetchEquipment, showFiltered} from '../actions/index'
 import ItemList from '../components/ItemList'
 import Filter from '../components/Filter'
 
+let sectionStyle = {
+  width: "100%",
+  height: "750px",
+  backgroundImage: "url(https://gameranx.com/wp-content/uploads/2016/11/tumblr_n9eetdQh7G1s4m2cvo1_1280-1024x551.png)",
+  backgroundSize: 'cover',
+  overflow: 'hidden',
+}
 
 class Equipment extends Component {
 
+  //testing
 
   componentDidMount(){
     this.props.fetchEquipment(this.props.user, this.props.membership_id, this.props.membership_type)
@@ -22,7 +30,7 @@ class Equipment extends Component {
 
   render(){
     return (
-      <div>
+      <div style={sectionStyle}>
         {(this.props.equipment) ? <ItemList  /> : null}
       </div>
     )

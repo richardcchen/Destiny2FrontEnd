@@ -40,14 +40,14 @@ class Adapter {
       })
     }
 
-    static createUser(username, newUserId, newUserCharArray, system){
+    static createUser(username, newUserId, newUserCharArray, system, pw){
       fetch(`http://localhost:3000/api/v1/users/createuser`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
           "Content-Type": 'application/json'
         },
-        body: JSON.stringify({username, newUserId, newUserCharArray, system})
+        body: JSON.stringify({username, newUserId, newUserCharArray, system, pw})
       })
     }
 
@@ -129,7 +129,10 @@ class Adapter {
       fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/?components=102`, {headers: {'X-API-KEY': apiKey}})
       .then(res => res.json())
       .then(data => {
-        if(data.Response.profileInventory.data){
+        if(data.ErrorCode !== 1){
+          return {}
+        }
+        else if(data.Response.profileInventory.data){
           return (data.Response.profileInventory.data.items)
         } else {
           return {}
@@ -172,14 +175,14 @@ class Adapter {
     }).then(res =>res.json())
   }
 
-  static checkUserDB(username){
+  static checkUserDB(username, pw){
     return fetch(`http://localhost:3000/api/v1/users/checkuser`, {
       method: 'POST',
       headers: {
         "Accept": 'application/json',
         "Content-Type": 'application/json'
       },
-      body: JSON.stringify({username})
+      body: JSON.stringify({username, pw})
     }).then(res =>res.json())
   }
 

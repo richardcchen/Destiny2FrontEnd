@@ -5,7 +5,7 @@ import ReduxTest from '../Redux/ReduxTest'
 class Filter extends Component {
   render(){
     return (
-        <Input onChange={this.props.handleFilter} style={{width: '45%', fontSize: '15pt'}} size='large' icon='search' placeholder='Search...'/>
+        <Input onChange={this.props.handleFilter} style={{width: '45%', fontSize: '15pt'}} size='large' icon='search' placeholder='Filter By Item Name'/>
       )
   }
 }

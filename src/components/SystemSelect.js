@@ -5,17 +5,17 @@ const systemOptions = [
   {
     text: "BattleNet",
     value: "4",
-    image: {avatar:true, src: 'https://cdn.vox-cdn.com/thumbor/HVD3QJMFr_kVE_J6--ZA4M6iyEM=/0x0:900x506/1820x1213/filters:focal(378x181:522x325):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/54844817/battlenetlogo.0.jpg'}
+    image: {avatar:true, src: 'http://chittagongit.com//images/battle-net-icon/battle-net-icon-17.jpg'}
   },
   {
     text: "XBOX",
     value: "1",
-    image: {avatar:true, src: 'https://cdn.vox-cdn.com/thumbor/bDw9XfIma-46qgmTokJC5shCN2A=/0x0:1100x582/1200x800/filters:focal(462x203:638x379)/cdn.vox-cdn.com/uploads/chorus_image/image/61158887/xbox_one.0.1473206294.0.png'}
+    image: {avatar:true, src: 'http://www.bungie.net/img/theme/destiny/icons/icon_xbl.png'}
   },
   {
     text: "PS4",
     value: "2",
-    image: {avatar:true, src: 'https://i.pinimg.com/originals/ff/e1/8b/ffe18bc07f4987eed129481171683dad.jpg'}
+    image: {avatar:true, src: 'http://www.bungie.net/img/theme/destiny/icons/icon_psn.png'}
   },
 ]
 

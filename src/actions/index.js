@@ -44,19 +44,23 @@ export function fetchUser(username, password, system) {
       .then(data => {
         dispatch({type: USER_STATS, payload: data.Response})
       })
+      Adapter.fetchFeed(id)
+      .then(data => {
+        dispatch({type: FETCH_FEED, payload: data.data})
+      })
       return (Adapter.getUserObj(id, system))
     })
     .then(data => {
       dispatch({ type: FETCH_USER, payload: data })
       return (data.Response.profile.data)
-    })
+      })
     .then(userObj => {
       Adapter.updateUser(userObj)
       return (Adapter.getFriends(userObj))
       })
-        .then(data => {
-          dispatch({type: FRIENDS_LIST, payload: data.data})
-        })
+      .then(data => {
+        dispatch({type: FRIENDS_LIST, payload: data.data})
+      })
   }
 }
 

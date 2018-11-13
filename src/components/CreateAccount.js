@@ -1,8 +1,17 @@
 import React, {Component} from 'react'
-import {Button, Form} from 'semantic-ui-react'
+import {Button, Form, Grid} from 'semantic-ui-react'
 import SystemSelect from '../components/SystemSelect'
 import Adapter from '../Adapter'
 import { Redirect } from 'react-router-dom';
+
+
+let sectionStyle = {
+  width: "100%",
+  height: "750px",
+  backgroundImage: "url(https://cdn.gearnuke.com/wp-content/uploads/2017/09/Destiny-2-2-768x432.jpg)",
+  backgroundSize: 'cover',
+  overflow: 'hidden',
+}
 
 class CreateAccount extends Component {
   constructor(){
@@ -57,7 +66,7 @@ class CreateAccount extends Component {
         .then(data => {
           this.setState({newUserCharArray: data.Response.profile.data.characterIds})
         }).then(() => {
-          Adapter.createUser(this.state.username, this.state.newUserId, this.state.newUserCharArray, this.state.system)
+          Adapter.createUser(this.state.username, this.state.newUserId, this.state.newUserCharArray, this.state.system, this.state.password)
           this.setState({isClicked: true})
           window.alert("Username successfully created!")
         })
@@ -89,26 +98,30 @@ class CreateAccount extends Component {
 
   render() {
     return (
-        <div>
-          {this.redirect()}
-          <h4>Please Enter Your Information</h4>
-          <Form id="login-form" onSubmit={this.onSubmit}>
-            <Form.Field>
-              <label>Username</label>
-              <input name="username" onChange={this.onChange} placeholder='Username' />
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input type="password" name="password" onChange={this.onChange} placeholder='Password' />
-            </Form.Field>
-            <Form.Field>
-              <input type="password" name="password2" onChange={this.onChange} placeholder='Confirm Password' />
-            </Form.Field>
-            <Form.Field>
-              <SystemSelect onChange={this.onDropDownChange}/>
-            </Form.Field>
-            <Button type='submit'>Submit</Button>
-          </Form>
+        <div style={sectionStyle}>
+          <Grid>
+            <Grid.Column width={6}>
+              {this.redirect()}
+              <h4>Join Our Clan</h4>
+              <Form id="login-form" onSubmit={this.onSubmit}>
+                <Form.Field>
+                  <label>Username</label>
+                  <input name="username" onChange={this.onChange} placeholder='Username' />
+                </Form.Field>
+                <Form.Field>
+                  <label>Password</label>
+                  <input type="password" name="password" onChange={this.onChange} placeholder='Password' />
+                </Form.Field>
+                <Form.Field>
+                  <input type="password" name="password2" onChange={this.onChange} placeholder='Confirm Password' />
+                </Form.Field>
+                <Form.Field>
+                  <SystemSelect onChange={this.onDropDownChange}/>
+                </Form.Field>
+                <Button type='submit'>Submit</Button>
+              </Form>
+            </Grid.Column>
+          </Grid>
         </div>
     )
   }

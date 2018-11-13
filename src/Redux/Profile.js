@@ -3,20 +3,33 @@ import {Component} from 'react'
 import { connect } from 'react-redux'
 import Welcome from './Welcome'
 import Stats from '../components/Stats'
-import {Button} from 'semantic-ui-react'
+import {Grid, Button} from 'semantic-ui-react'
 import Adapter from '../Adapter'
+import ItemFeed from './ItemFeed'
 
-
+let sectionStyle = {
+  width: "100%",
+  height: "750px",
+  backgroundImage: "url(https://kseeker5.github.io/wallpapers/images/wallpapers/destiny2/Destiny%202%20-%20Chained%20Traveler.png)",
+  backgroundSize: 'cover',
+  overflow: 'hidden',
+}
 
 class Profile extends Component {
 
 
-
   render(){
     return (
-      <div>
-        {(this.props.user) ? <Welcome user={this.props.user} /> : null}
-        {<Stats type={this.props.type} id={this.props.id}/>}
+      <div style={sectionStyle}>
+        <Grid>
+          <Grid.Column width={10}>
+            {(this.props.user) ? <Welcome user={this.props.user} /> : null}
+            {<Stats type={this.props.type} id={this.props.id}/>}
+          </Grid.Column>
+          <Grid.Column width={5}>
+            <ItemFeed />
+          </Grid.Column>
+        </Grid>
       </div>
     )
   }
