@@ -20,7 +20,7 @@ class Profile extends Component {
 
   render(){
     return (
-      <div style={sectionStyle}>
+      <div id="profile">
         <Grid>
           <Grid.Column width={10}>
             {(this.props.user) ? <Welcome user={this.props.user} /> : null}

@@ -57,7 +57,7 @@ class Friends extends Component {
 
   render(){
     return (
-      <div style={sectionStyle}>
+      <div id="friends">
         <Grid>
           <Grid.Column width={12}>
             <h1>Search For A Guardian</h1>

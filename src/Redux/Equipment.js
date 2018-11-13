@@ -30,7 +30,7 @@ class Equipment extends Component {
 
   render(){
     return (
-      <div style={sectionStyle}>
+      <div id="equipment">
         {(this.props.equipment) ? <ItemList  /> : null}
       </div>
     )

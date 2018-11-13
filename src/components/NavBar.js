@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Menu, Segment } from 'semantic-ui-react'
 import { NavLink } from 'react-router-dom';
 
+
+
+
 class NavBar extends Component {
   state = { activeItem: 'home' }
 
@@ -13,11 +16,15 @@ class NavBar extends Component {
     }
   }
 
+// style = {check ? {display:"none"} : null}
+
   render() {
     const activeItem = window.location.href
-
+    const check = this.props.hist.location.pathname === "/"
+    // console.log("check:", check);
+    console.log("historypath", this.props.hist.location.pathname);
     return (
-      <Segment inverted>
+    <Segment inverted>
         <Menu inverted pointing secondary>
           <NavLink exact to="/profile">
             <Menu.Item

@@ -22,3 +22,83 @@ code {
     width: 300px;
     height: auto;
 }
+
+#login {
+  background-image: url(https://geek-prime.com/wp-content/uploads/2014/02/Destiny-2-4k-hd-wallpaper-Last-city-rain-1024x576.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}
+
+body {
+  margin: 0px;
+}
+
+#login-overlay {
+  position: absolute;
+  background-color: rgba(0,0,0,0.5);
+  /* top: 0;
+  bottom: 0; */
+  height: 100%;
+  width: 100%;
+  z-index: -5;
+}
+
+#create-account {
+  background-image: url(https://cdn.gearnuke.com/wp-content/uploads/2017/09/Destiny-2-2-768x432.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}
+
+#create-account {
+  background-image: url(https://cdn.gearnuke.com/wp-content/uploads/2017/09/Destiny-2-2-768x432.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}
+
+#profile {
+  background-image: url(https://kseeker5.github.io/wallpapers/images/wallpapers/destiny2/Destiny%202%20-%20Chained%20Traveler.png);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}
+
+#equipment {
+  background-image: url(https://gameranx.com/wp-content/uploads/2016/11/tumblr_n9eetdQh7G1s4m2cvo1_1280-1024x551.png);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}
+
+#friends {
+  background-image: url(https://gameranx.com/wp-content/uploads/2016/11/tumblr_n9eetdQh7G1s4m2cvo1_1280-1024x551.png);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  /* z-index: -10; */
+}

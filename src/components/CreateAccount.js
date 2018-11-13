@@ -98,7 +98,7 @@ class CreateAccount extends Component {
 
   render() {
     return (
-        <div style={sectionStyle}>
+        <div id="create-account">
           <Grid>
             <Grid.Column width={6}>
               {this.redirect()}

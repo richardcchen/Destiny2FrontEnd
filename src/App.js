@@ -12,27 +12,32 @@ import Oauth from './Redux/Oauth'
 import Friends from './Redux/Friends'
 import CreateAccount from './components/CreateAccount'
 import { connect } from 'react-redux';
+import {createBrowserHistory} from 'history'
+
+const hist = createBrowserHistory()
+
 
 
 
 class App extends Component {
+
   render() {
     return (
       <div>
         <div>
-          <NavBar />
+          {(this.props.username) ? <NavBar hist={hist} /> : null}
           <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/itemfeed" component={ItemFeed} />
-            <Route exact path="/equipment" component={Equipment} />
-            <Route exact path="/friends" component={Friends} />
+            <Route hist={hist} exact path="/" component={Login} />
+            <Route hist={hist} exact path="/profile" component={Profile} />
+            <Route hist={hist} exact path="/itemfeed" component={ItemFeed} />
+            <Route hist={hist} exact path="/equipment" component={Equipment} />
+            <Route hist={hist} exact path="/friends" component={Friends} />
             <Route exact path="/Oauth" component={Oauth} />
-            <Route exact path="/newaccount" component={CreateAccount} />
+            <Route hist={hist} exact path="/newaccount" component={CreateAccount} />
           </Switch>
       </div>
       </div>
-    );
+    )
   }
 }
 

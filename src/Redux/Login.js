@@ -11,7 +11,7 @@ import { ComponentType } from 'the-traveler/build/enums'
 
 let sectionStyle = {
   width: "100%",
-  height: "750px",
+  height: "900px",
   backgroundImage: "url(https://geek-prime.com/wp-content/uploads/2014/02/Destiny-2-4k-hd-wallpaper-Last-city-rain-1024x576.jpg)",
   backgroundSize: 'cover',
   overflow: 'hidden',
@@ -53,7 +53,10 @@ class Login extends Component {
       if (data.data === "fail"){
         if (data.password === "pass"){
           this.props.fetchUser(this.state.username, this.state.password, this.state.system)
-          this.setState({isClicked: true})
+          //history.push here
+          console.log(this.props);
+          this.props.history.push('/profile')
+          // this.setState({isClicked: true})
         } else {
           window.alert("Incorrect Username and/or Password")
         }
@@ -74,8 +77,8 @@ class Login extends Component {
 
   render() {
     return (
-    <div style={sectionStyle} >
-    <Grid>
+    <div id="login" >
+    <Grid >
       <Grid.Column width={5}>
       </Grid.Column>
       <Grid.Column width={6}>
