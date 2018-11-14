@@ -39,15 +39,9 @@ class Login extends Component {
     })
   }
 
-  redirect = () => {
-    if (this.state.isClicked){
-      return <Redirect to="/profile" />
-    }
-  }
-
   onSubmit = (event) => {
     event.preventDefault()
-    Adapter.checkUserDB(this.state.username, this.state.password)
+    Adapter.checkUserDB(this.state.username, this.state.password, this.state.system)
     .then(data => {
       if (data.data === "fail"){
         if (data.password === "pass"){
@@ -82,7 +76,6 @@ class Login extends Component {
       </Grid.Column>
       <Grid.Column width={6}>
         <div>
-          {this.redirect()}
           <Form id="login-form" onSubmit={this.onSubmit}>
             <Form.Field>
               <label style={style}>Username</label>

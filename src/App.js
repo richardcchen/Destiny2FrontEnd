@@ -3,6 +3,7 @@ import './App.css';
 import Test from './components/Test'
 import { Route, Switch, withRouter} from 'react-router-dom';
 import NavBar from './components/NavBar'
+import MenuButtons from './components/MenuButtons'
 import Login from './Redux/Login'
 import ReduxTest from './Redux/ReduxTest'
 import Profile from './Redux/Profile'

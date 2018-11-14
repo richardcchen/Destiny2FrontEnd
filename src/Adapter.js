@@ -186,14 +186,14 @@ class Adapter {
     }).then(res =>res.json())
   }
 
-  static checkUserDB(username, pw){
+  static checkUserDB(username, pw, system){
     return fetch(`http://localhost:3000/api/v1/users/checkuser`, {
       method: 'POST',
       headers: {
         "Accept": 'application/json',
         "Content-Type": 'application/json'
       },
-      body: JSON.stringify({username, pw})
+      body: JSON.stringify({username, pw, system})
     }).then(res =>res.json())
   }
 

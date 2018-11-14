@@ -152,10 +152,11 @@ code {
 }
 
 
+
 .gif_player img {
 display: block;
 width: 40em;
-height: 30em;
+height: 15em;
 margin-left: auto;
 margin-right: auto;
 }

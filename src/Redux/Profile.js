@@ -6,6 +6,7 @@ import Stats from '../components/Stats'
 import {Grid, Button} from 'semantic-ui-react'
 import Adapter from '../Adapter'
 import ItemFeed from './ItemFeed'
+import MenuButtons from '../components/MenuButtons'
 
 let style = {
   "padding-left": "5rem"
