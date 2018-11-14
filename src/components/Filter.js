@@ -7,9 +7,11 @@ let style={
 }
 
 class Filter extends Component {
+
+  // style={{width: '45%', fontSize: '15pt'}
   render(){
     return (
-        <Input style={style} onChange={this.props.handleFilter} style={{width: '45%', fontSize: '15pt'}} size='large' icon='search' placeholder='Filter By Item Name'/>
+        <Input id="filter" style={style} onChange={this.props.handleFilter}  size='large' icon='search' placeholder='Filter By Item Name'/>
       )
   }
 }

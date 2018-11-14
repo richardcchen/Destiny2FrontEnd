@@ -94,6 +94,7 @@ code {
 }
 
 #stat-table{
+  margin-left: 3vh;
   background-color: rgba(0, 0, 0, 0);
   opacity: 0;
 }
@@ -103,30 +104,49 @@ code {
   background-size: cover;
   background-position: center center;
   position: relative;
-  top: 0;
+  top: -2vh;
   bottom: 0;
   height: 105vh;
   overflow-y: scroll;
-  /* z-index: -10; */
-/* }
+  z-index: -10;
+}
 
 #friends {
   background-image: url(http://hdqwalls.com/wallpapers/destiny-2-osiris-avenement-m3.jpg);
   background-size: cover;
   background-position: center center;
   position: relative;
-  top: 0;
+  top: -2vh;
   bottom: 0;
-  height: 105vh;
+  height: 103vh;
   overflow-y: scroll;
   /* z-index: -10; */
 }
 
+#filter {
+  margin-top: 0vh;
+  margin-left: 3vh;
+}
 
+#tab {
+  margin-top: 3vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+}
+
+#loading{
+  margin-top: 10em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#loadtext{
+  margin-left: 24em;
+}
 .gif_player img {
-margin-top: 10px;
-height: 20em;
-background-position: center center;
-/* background-repeat: no-repeat; */
-background-size: cover;
+display: block;
+width: 40em;
+height: 30em;
+margin-left: auto;
+margin-right: auto;
 }

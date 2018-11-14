@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Tab } from 'semantic-ui-react';
+import { Card, Tab, Button } from 'semantic-ui-react';
 import Item from "./Item"
 import Filter from "./Filter"
 
@@ -9,6 +9,7 @@ class ItemList extends Component {
     super()
     this.state = {
       filterWord: ""
+
     }
   }
 
@@ -76,8 +77,8 @@ render(){
   ]
   return(
     <div>
-      <Filter handleFilter={this.handleFilter}/>
-      <Tab menu={{ pointing: true }} panes={panes} />
+      <Filter id="filter" handleFilter={this.handleFilter}/>
+      <Tab id="tab" menu={{ pointing: true }} panes={panes} />
     </div>
   )
 }

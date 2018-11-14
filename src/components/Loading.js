@@ -3,9 +3,9 @@ import GifPlayer from 'react-gif-player'
 
 const Loading = () => {
   return (
-    <div>
-      <h1>LOADING...</h1>
-      <GifPlayer class="gif_player" id="loading" gif="https://media.tenor.com/images/cb37bbf6a6099e6e60981776bed03a76/tenor.gif" autoplay="true"/>
+    <div id="loading">
+      <GifPlayer class="player2" id="loading1" gif="https://media1.tenor.com/images/cd77f35d8796025d03b5452d65269e9d/tenor.gif?itemid=8766696" autoplay="true"/>
+      <GifPlayer class="player1" id="loading2" gif="https://i.makeagif.com/media/9-30-2015/uLT5lG.gif" autoplay="true"/>
     </div>
   )
 }
