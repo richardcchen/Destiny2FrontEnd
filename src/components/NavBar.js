@@ -20,14 +20,13 @@ class NavBar extends Component {
 
   render() {
     const activeItem = window.location.href
-    const check = this.props.hist.location.pathname === "/"
     // console.log("check:", check);
-    console.log("historypath", this.props.hist.location.pathname);
     return (
-    <Segment inverted>
+    <Segment inverted style={{}}>
         <Menu inverted pointing secondary>
           <NavLink exact to="/profile">
             <Menu.Item
+              style={{color: 'red'}}
               name='profile'
               active={activeItem === 'http://localhost:3001/profile'}
               onClick={this.handleItemClick}

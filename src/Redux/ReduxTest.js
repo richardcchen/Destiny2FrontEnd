@@ -37,7 +37,6 @@ class ReduxTest extends Component {
 
 
   render(){
-    console.log("redux equipment", this.props.equipment);
     return (
       <div>
         <button onClick={this.login}>login</button><br/><br/>

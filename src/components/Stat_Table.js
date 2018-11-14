@@ -2,17 +2,13 @@ import React from 'react'
 import {Table} from 'semantic-ui-react'
 
 let style = {
-  // width: "100%",
-  // height: "750px",
-  // overflow: 'hidden',
-  // backGroundColor: rgba(25,25,25,0)
-  // opacity: 0
+  opacity: 0.6
 }
 
 const Stat_Table = ({statsObj, userObj}) => {
   const PvP_Header = statsObj.mergedAllCharacters.results.allPvP
   return (
-  <Table definition>
+  <Table definition style={style}>
   <Table.Header>
     <Table.Row style={style}>
       <Table.HeaderCell />

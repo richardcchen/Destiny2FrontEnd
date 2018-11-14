@@ -4,7 +4,6 @@ import SystemSelect from '../components/SystemSelect'
 import Adapter from '../Adapter'
 import { Redirect } from 'react-router-dom';
 import Loading from '../components/Loading'
-import ReactRevealText from 'react-reveal-text'
 
 
 let style = {

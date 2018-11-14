@@ -6,6 +6,12 @@ import Adapter from '../Adapter'
 import { connect } from 'react-redux'
 const bungie = 'http://www.bungie.net'
 
+let style = {
+  // width: "100%",
+  // height: "750px",
+  // overflow: 'hidden',
+  backgroundColor: "#6D7979",
+}
 
 class Item extends Component {
   constructor(props){
@@ -28,8 +34,7 @@ class Item extends Component {
     return(
         <Card>
           <Modal trigger={<Image src={`${bungie}${this.props.item.invObj.icon}`} />}>
-            <Modal.Header>Select a Photo</Modal.Header>
-            <Modal.Content image>
+            <Modal.Content image style={style}>
               <Image wrapped size='medium' src={`${bungie}${this.props.item.invObj.screenshot}`} />
               <Modal.Description>
                 <Header>{this.props.item.invObj.name}</Header>

@@ -108,7 +108,7 @@ code {
   bottom: 0;
   height: 105vh;
   overflow-y: scroll;
-  z-index: -10;
+  /* z-index: -10; */
 }
 
 #friends {
@@ -125,7 +125,6 @@ code {
 
 #filter {
   margin-top: 0vh;
-  margin-left: 3vh;
 }
 
 #tab {

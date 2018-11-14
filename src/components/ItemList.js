@@ -78,7 +78,7 @@ render(){
   return(
     <div>
       <Filter id="filter" handleFilter={this.handleFilter}/>
-      <Tab id="tab" menu={{ pointing: true }} panes={panes} />
+      <Tab id="tab" menu={{ pointing: true, style: {opacity: .5, width: '35%'} }} panes={panes} />
     </div>
   )
 }
