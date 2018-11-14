@@ -6,16 +6,15 @@ import { Redirect } from 'react-router-dom';
 import { fetchUser } from '../actions/index'
 import Adapter from '../Adapter'
 import { ComponentType } from 'the-traveler/build/enums'
-// 'https://geek-prime.com/wp-content/uploads/2014/02/Destiny-2-4k-hd-wallpaper-Last-city-rain-1024x576.jpg'
+import ReactRevealText from 'react-reveal-text'
 
 
-let sectionStyle = {
-  width: "100%",
-  height: "900px",
-  backgroundImage: "url(https://geek-prime.com/wp-content/uploads/2014/02/Destiny-2-4k-hd-wallpaper-Last-city-rain-1024x576.jpg)",
-  backgroundSize: 'cover',
-  overflow: 'hidden',
+
+
+let style = {
+  color: '#8c7055'
 }
+
 class Login extends Component {
   constructor(){
     super()
@@ -86,11 +85,11 @@ class Login extends Component {
           {this.redirect()}
           <Form id="login-form" onSubmit={this.onSubmit}>
             <Form.Field>
-              <label>Username</label>
+              <label style={style}>Username</label>
               <input name="username" onChange={this.onChange} placeholder='Username' />
             </Form.Field>
             <Form.Field>
-              <label>Password</label>
+              <label style={style}>Password</label>
               <input type="password" name="password" onChange={this.onChange} placeholder='Password' />
             </Form.Field>
             <Form.Field>

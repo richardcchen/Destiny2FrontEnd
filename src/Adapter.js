@@ -82,23 +82,34 @@ class Adapter {
     }
 
     static getCharItems(char_num, userObj, id, type){
-      const charIds = userObj.characterIds
-      // console.log("charIds", charIds);
-      return (
-      fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/Character/${charIds[char_num]}/?components=201,205`, {headers: {'X-API-KEY': apiKey}})
-      .then(res => res.json())
-      .then(data => {
-        if (data.Response.inventory.data){
-          return [...data.Response.inventory.data.items, ...data.Response.equipment.data.items]
-        } else {
-          return data.Response.equipment.data.items
+      // try{
+      //   test = userObj.characterIds
+      // }
+      // catch(error){
+      //   return "something"
+      // }
+      if(userObj)
+        {
+          const charIds = userObj.characterIds
+          return (
+          fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/Character/${charIds[char_num]}/?components=201,205`, {headers: {'X-API-KEY': apiKey}})
+          .then(res => res.json())
+          .then(data => {
+            if (data.Response.inventory.data){
+              return [...data.Response.inventory.data.items, ...data.Response.equipment.data.items]
+            } else {
+              return data.Response.equipment.data.items
+            }
+          })
+          .then(equipment => {
+            return (
+              this.searchManifest(equipment, id, type)
+          )})
+          .then(res => res.json()))
         }
-      })
-      .then(equipment => {
-        return (
-          this.searchManifest(equipment, id, type)
-      )})
-      .then(res => res.json()))
+      else {
+        return "{}"
+      }
     }
 
     static searchManifest(items, id, system){

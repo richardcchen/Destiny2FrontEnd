@@ -26,8 +26,12 @@ class Profile extends Component {
             {(this.props.user) ? <Welcome user={this.props.user} /> : null}
             {<Stats type={this.props.type} id={this.props.id}/>}
           </Grid.Column>
-          <Grid.Column width={5}>
-            <ItemFeed />
+          <Grid.Column width={2}>
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <div id="item-feed">
+              <ItemFeed />
+            </div>
           </Grid.Column>
         </Grid>
       </div>

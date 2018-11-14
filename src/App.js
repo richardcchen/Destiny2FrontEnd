@@ -28,12 +28,11 @@ class App extends Component {
           {(this.props.username) ? <NavBar hist={hist} /> : null}
           <Switch>
             <Route hist={hist} exact path="/" component={Login} />
+            <Route hist={hist} exact path="/newaccount" component={CreateAccount} />
             <Route hist={hist} exact path="/profile" component={Profile} />
-            <Route hist={hist} exact path="/itemfeed" component={ItemFeed} />
             <Route hist={hist} exact path="/equipment" component={Equipment} />
             <Route hist={hist} exact path="/friends" component={Friends} />
             <Route exact path="/Oauth" component={Oauth} />
-            <Route hist={hist} exact path="/newaccount" component={CreateAccount} />
           </Switch>
       </div>
       </div>

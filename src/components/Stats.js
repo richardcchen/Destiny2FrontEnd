@@ -5,6 +5,15 @@ import Adapter from '../Adapter'
 import { connect } from 'react-redux'
 import Stat_Table from './Stat_Table'
 
+let style = {
+  // width: "100%",
+  // height: "750px",
+  // overflow: 'hidden',
+  backGroundColor: "transparent",
+  opacity: 0
+}
+
+
 class Stats extends Component {
 
 
@@ -12,7 +21,7 @@ class Stats extends Component {
   render(){
     return (
       <div>
-        {(this.props.user_stats) ? <Stat_Table statsObj={this.props.user_stats} userObj={this.props.userObj} /> : null}
+        {(this.props.user_stats) ? <Stat_Table id="stat-table" statsObj={this.props.user_stats} userObj={this.props.userObj} /> : null}
       </div>
     )
   }

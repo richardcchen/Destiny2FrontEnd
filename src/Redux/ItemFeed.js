@@ -16,7 +16,6 @@ class ItemFeed extends Component {
   render(){
     return (
       <div>
-        <h1>Feed</h1>
         {(this.props.feed) ? <EachFeed/> : null}
       </div>
     )

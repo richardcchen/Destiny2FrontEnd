@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchFriendEquipment, showFiltered} from '../actions/index'
 import FriendItemList from '../components/FriendItemList'
 import Filter from '../components/Filter'
+import Loading from '../components/Loading'
 
 
 class FriendEquipment extends Component {
@@ -23,7 +24,7 @@ class FriendEquipment extends Component {
   render(){
     return (
       <div>
-        {(this.props.friend_equipment_1) ? <FriendItemList  /> : null}
+        {(this.props.friend_equipment_1.length !== 0) ? <FriendItemList  /> : <Loading/>}
       </div>
     )
   }

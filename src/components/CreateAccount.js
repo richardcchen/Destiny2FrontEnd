@@ -3,14 +3,12 @@ import {Button, Form, Grid} from 'semantic-ui-react'
 import SystemSelect from '../components/SystemSelect'
 import Adapter from '../Adapter'
 import { Redirect } from 'react-router-dom';
+import Loading from '../components/Loading'
+import ReactRevealText from 'react-reveal-text'
 
 
-let sectionStyle = {
-  width: "100%",
-  height: "750px",
-  backgroundImage: "url(https://cdn.gearnuke.com/wp-content/uploads/2017/09/Destiny-2-2-768x432.jpg)",
-  backgroundSize: 'cover',
-  overflow: 'hidden',
+let style = {
+  color: 'grey'
 }
 
 class CreateAccount extends Component {
@@ -94,22 +92,26 @@ class CreateAccount extends Component {
   //   this.setState({newUserCharArray: data.Response.profile.data.characterIds})
   // })
 
-
+  login = () => {
+    this.props.history.push("/");
+  }
 
   render() {
+    console.log(this.props);
     return (
         <div id="create-account">
           <Grid>
             <Grid.Column width={6}>
               {this.redirect()}
-              <h4>Join Our Clan</h4>
-              <Form id="login-form" onSubmit={this.onSubmit}>
+              <div>
+              <h2 id="create-title">Create An Account</h2>
+              <Form id="create-form" onSubmit={this.onSubmit}>
                 <Form.Field>
-                  <label>Username</label>
+                  <label style={style}>Username</label>
                   <input name="username" onChange={this.onChange} placeholder='Username' />
                 </Form.Field>
                 <Form.Field>
-                  <label>Password</label>
+                  <label style={style}>Password</label>
                   <input type="password" name="password" onChange={this.onChange} placeholder='Password' />
                 </Form.Field>
                 <Form.Field>
@@ -120,7 +122,14 @@ class CreateAccount extends Component {
                 </Form.Field>
                 <Button type='submit'>Submit</Button>
               </Form>
-            </Grid.Column>
+            <br/><br/>
+            </div>
+          </Grid.Column>
+          <Grid.Column width={7}>
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <Button id="back-login" onClick={this.login}>Back To Login</Button>
+          </Grid.Column>
           </Grid>
         </div>
     )
