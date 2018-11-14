@@ -140,9 +140,19 @@ code {
   margin-right: auto;
 }
 
-#loadtext{
-  margin-left: 24em;
+#friend-col-1{
+  left: 3vh;
 }
+
+#friend-col-2{
+  left: 4vh;
+}
+
+#toggle-friend-button{
+
+}
+
+
 .gif_player img {
 display: block;
 width: 40em;

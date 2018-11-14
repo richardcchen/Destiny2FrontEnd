@@ -10,13 +10,6 @@ import FriendEquipment from './FriendEquipment'
 import {friendShow, loadFriendsList, fetchFriendEquipment} from '../actions/index'
 
 
-let sectionStyle = {
-  width: "100%",
-  height: "750px",
-  backgroundImage: "url(http://hdqwalls.com/wallpapers/destiny-2-osiris-avenement-m3.jpg)",
-  backgroundSize: 'cover',
-  overflow: 'hidden',
-}
 
 class Friends extends Component {
   constructor(props){
@@ -59,25 +52,27 @@ class Friends extends Component {
     return (
       <div id="friends">
         <Grid>
-          <Grid.Column width={12}>
+          <Grid.Column id="friend-col-1" width={13}>
             <h1>Search For A Guardian</h1>
-            <Search handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+            <Search id="search" handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
             <br/>
             <br/>
-            {(this.state.searched)? <button onClick={this.addFriend}>Add to Fireteam </button> : null}
+            {(this.state.searched) ? <button onClick={this.addFriend}>Add to Fireteam </button> : null}
             <br/>
             <br/>
-            <div class="ui buttons">
+            <div id="toggle-friend-button" class="ui buttons">
               <button onClick={this.handleStats} class="ui button">Stats</button>
               <div class="or"></div>
               <button onClick={this.handleEquipment} class="ui button">Equipment</button>
             </div>
             {(this.state.view) ?
-              ((this.props.friendObj) ? <Stat_Table statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null)
+              ((this.props.friendObj) ? <Stat_Table id="friend-stats" statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null)
               :
               <FriendEquipment />}
           </Grid.Column>
-          <FriendsList />
+          <Grid.Column id="friend-col-2" width={3}>
+            <FriendsList />
+          </Grid.Column>
         </Grid>
       </div>
     )

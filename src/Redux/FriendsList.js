@@ -18,9 +18,9 @@ class FriendsList extends Component {
   render(){
     return (
       <div>
-        <h1>Fire Team</h1>
+        <h1 style={{color: '#3c0f49', fontSize: '30pt'}}><u>Fire Team</u></h1>
         <List>
-          {(this.props.friends_list) ?  this.props.friends_list.map(friend => <List.Item as='a' onClick={(event) => this.showFriend(friend)}>{friend.displayName}</List.Item>) : null}
+          {(this.props.friends_list) ?  this.props.friends_list.map(friend => <List.Item style={{color: 'orange', fontSize: '40pt'}} as='a' onClick={(event) => this.showFriend(friend)}>{friend.displayName}</List.Item>) : null}
         </List>
       </div>
     )

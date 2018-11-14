@@ -23,7 +23,7 @@ class FriendEquipment extends Component {
 
   render(){
     return (
-      <div>
+      <div id="friend-equipment">
         {(this.props.friend_equipment_1.length !== 0) ? <FriendItemList  /> : <Loading/>}
       </div>
     )
