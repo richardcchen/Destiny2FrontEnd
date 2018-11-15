@@ -136,11 +136,6 @@ export function fetchEquipment(userObj, id, type){
             dispatch({ type: FETCH_VAULT, payload: equipShow})
             dispatch({ type: ALL_ITEMS, payload: equipShow})
             dispatch({ type: LOAD_FILTERED, payload: equipShow})
-        // Adapter.getCharItems(0, userObj, id, type)
-        // .then(equipShow => {
-        //   dispatch({ type: FETCH_EQUIPMENT, payload: equipShow})
-        //   dispatch({ type: LOAD_FILTERED, payload: equipShow})
-        //   dispatch({ type: ALL_ITEMS, payload: equipShow})
         }})
         .then(() => {
           Adapter.getCharItems(0, userObj, id, type)
@@ -151,25 +146,23 @@ export function fetchEquipment(userObj, id, type){
             dispatch({ type: ALL_ITEMS, payload: equipShow})
           }})
         }).then(() => {
-          Adapter.getCharItems(1, userObj, id, type)
-          .then(equipShow => {
-            dispatch({ type: FETCH_EQUIPMENT_2, payload: equipShow})
-            dispatch({ type: LOAD_FILTERED, payload: equipShow})
-            dispatch({ type: ALL_ITEMS, payload: equipShow})
-          })
+          if (userObj.characterIds.length > 1) {
+            Adapter.getCharItems(1, userObj, id, type)
+            .then(equipShow => {
+              dispatch({ type: FETCH_EQUIPMENT_2, payload: equipShow})
+              dispatch({ type: LOAD_FILTERED, payload: equipShow})
+              dispatch({ type: ALL_ITEMS, payload: equipShow})
+            })
+          }
         }).then(() => {
-        // Adapter.getVaultItems(id, type)
-        // .then(equipShow => {
-        //   if (equipShow) {
-        //     dispatch({ type: FETCH_VAULT, payload: equipShow})
-        //     dispatch({ type: ALL_ITEMS, payload: equipShow})
-        //     dispatch({ type: LOAD_FILTERED, payload: equipShow})
-          Adapter.getCharItems(2, userObj, id, type)
-          .then(equipShow => {
-            dispatch({ type: FETCH_EQUIPMENT_3, payload: equipShow})
-            dispatch({ type: LOAD_FILTERED, payload: equipShow})
-            dispatch({ type: ALL_ITEMS, payload: equipShow})
-          })
+          if (userObj.characterIds.length > 2) {
+            Adapter.getCharItems(2, userObj, id, type)
+            .then(equipShow => {
+              dispatch({ type: FETCH_EQUIPMENT_3, payload: equipShow})
+              dispatch({ type: LOAD_FILTERED, payload: equipShow})
+              dispatch({ type: ALL_ITEMS, payload: equipShow})
+            })
+          }
     })
   )}
 }

@@ -16,6 +16,7 @@ class ItemFeed extends Component {
   render(){
     return (
       <div>
+        {(this.props.feed) ? <h1>Fire Team Chat</h1> : null}
         {(this.props.feed) ? <EachFeed/> : null}
       </div>
     )

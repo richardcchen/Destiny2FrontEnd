@@ -79,22 +79,26 @@ code {
   background-size: cover;
   background-position: center center;
   position: relative;
-  top: 0;
+  top: -1em;
   bottom: 0;
   height: 105vh;
+  overflow-y: scroll;
 }
 
 #welcome {
+  margin-top: 2vh;
   margin-left: 3vh;
   margin-bottom: 3vh;
 }
 
 #item-feed{
   margin-top: 10vh;
+  margin-left: -5vh;
 }
 
 #stat-table{
   margin-left: 3vh;
+  margin-top: 3vh;
   background-color: rgba(0, 0, 0, 0);
   opacity: 0;
 }

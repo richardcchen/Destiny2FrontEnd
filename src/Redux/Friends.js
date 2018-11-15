@@ -22,10 +22,15 @@ class Friends extends Component {
     this.setState({searched: true})
     const urlName = Adapter.getProfileName(this.state.username)
     .then(data => {
-      const searchId = data.Response[0].membershipId
-      const searchSystem = data.Response[0].membershipType
-      const searchdisplayName = data.Response[0].displayName
-      this.props.friendShow(searchId, searchSystem)
+      if (JSON.stringify(data.Response) === "[]"){
+        window.alert("Sorry this username was not found")
+      }
+      else {
+        const searchId = data.Response[0].membershipId
+        const searchSystem = data.Response[0].membershipType
+        const searchdisplayName = data.Response[0].displayName
+        this.props.friendShow(searchId, searchSystem)
+      }
     })
   }
 
@@ -53,18 +58,18 @@ class Friends extends Component {
       <div id="friends">
         <Grid>
           <Grid.Column id="friend-col-1" width={13}>
-            <h1>Search For A Guardian</h1>
-            <Search id="search" handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+            {(this.props.user) ? <h1>Search For A Guardian</h1> : null}
+            {(this.props.user) ? <Search id="search" handleSubmit={this.handleSubmit} handleChange={this.handleChange} /> : null}
             <br/>
             <br/>
             {(this.state.searched) ? <button onClick={this.addFriend}>Add to Fireteam </button> : null}
             <br/>
             <br/>
-            <div id="toggle-friend-button" class="ui buttons">
+            {(this.props.user) ? <div id="toggle-friend-button" class="ui buttons">
               <button onClick={this.handleStats} class="ui button">Stats</button>
               <div class="or"></div>
               <button onClick={this.handleEquipment} class="ui button">Equipment</button>
-            </div>
+            </div> : null}
             {(this.state.view) ?
               ((this.props.friendObj) ? <Stat_Table id="friend-stats" statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null)
               :

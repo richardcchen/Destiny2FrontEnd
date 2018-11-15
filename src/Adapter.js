@@ -82,12 +82,7 @@ class Adapter {
     }
 
     static getCharItems(char_num, userObj, id, type){
-      // try{
-      //   test = userObj.characterIds
-      // }
-      // catch(error){
-      //   return "something"
-      // }
+
       if(userObj)
         {
           const charIds = userObj.characterIds
@@ -95,6 +90,7 @@ class Adapter {
           fetch(`https://www.bungie.net/Platform/Destiny2/${type}/Profile/${id}/Character/${charIds[char_num]}/?components=201,205`, {headers: {'X-API-KEY': apiKey}})
           .then(res => res.json())
           .then(data => {
+            debugger
             if (data.Response.inventory.data){
               return [...data.Response.inventory.data.items, ...data.Response.equipment.data.items]
             } else {
