@@ -30,7 +30,6 @@ class Item extends Component {
   }
 
   render(){
-    console.log(this.props);
     return(
         <Card>
           <Modal trigger={<Image id="card-image" src={`${bungie}${this.props.item.invObj.icon}`} />}>

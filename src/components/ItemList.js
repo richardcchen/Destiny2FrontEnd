@@ -35,7 +35,7 @@ render(){
   const panes = [
     { menuItem: 'Character 1', render: () =>
       (this.props.equipment) ?
-        <Card.Group id="items" itemsPerRow={6}>
+        <Card.Group id="items" itemsPerRow={8}>
           {this.filterArray(this.props.equipment).map(item => <Item item={item}/>)}
         </Card.Group>
         :
@@ -43,7 +43,7 @@ render(){
     },
     { menuItem: 'Character 2', render: () =>
       (this.props.equipment_2) ?
-        <Card.Group id="items" itemsPerRow={6}>
+        <Card.Group id="items" itemsPerRow={8}>
           {this.filterArray(this.props.equipment_2).map(item => <Item item={item}/>)}
         </Card.Group>
         :
@@ -51,7 +51,7 @@ render(){
     },
     { menuItem: 'Character 3', render: () =>
       (this.props.equipment_3) ?
-        <Card.Group id="items" itemsPerRow={6}>
+        <Card.Group id="items" itemsPerRow={8}>
           {this.filterArray(this.props.equipment_3).map(item => <Item item={item}/>)}
         </Card.Group>
         :
