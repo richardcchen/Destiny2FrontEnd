@@ -10,6 +10,17 @@ const wordPoses = {
 };
 
 const charPoses = {
+  exit: { y: 25, opacity: 0 },
+ enter: {
+   y: 0,
+   opacity: 1,
+   transition: ({ charInWordIndex }) => ({
+     type: 'spring',
+     delay: charInWordIndex * 3,
+     stiffness: 500 + charInWordIndex * 150,
+     damping: 10 - charInWordIndex * 1
+   })
+ },
   drag: {
     y: 0,
     transition: ({ charInWordIndex }) => ({
@@ -31,7 +42,7 @@ const charPoses = {
 function Title() {
   return (
     <div className="contain" id = "title">
-      <SplitText wordPoses={wordPoses} charPoses={charPoses}>
+      <SplitText initialPose="exit" pose="enter" wordPoses={wordPoses} charPoses={charPoses}>
         Destiny's Guardians App
       </SplitText>
     </div>
