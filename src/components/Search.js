@@ -7,9 +7,9 @@ class Search extends Component {
       <div>
         <form onSubmit={this.props.handleSubmit}>
           <label>
-            <input style={{width: '20%', fontSize: '15pt', opacity: .5}} type="text" onChange={this.props.handleChange} placeholder="enter username" />
+            <input style={{width: '30%', fontSize: '25pt', opacity: .5}} type="text" onChange={this.props.handleChange} placeholder="enter username" />
             </label>
-          <input type="submit" value="Submit" />
+          <input id="search-btn" type="submit" value="Submit" />
         </form>
       </div>
       )

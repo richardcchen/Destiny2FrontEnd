@@ -56,16 +56,16 @@ class Friends extends Component {
   render(){
     return (
       <div id="friends">
-        <Grid>
+        <Grid id="friends-grid">
           <Grid.Column id="friend-col-1" width={13}>
-            {(this.props.user) ? <h1>Search For A Guardian</h1> : null}
+            {(this.props.user) ? <h1 style={{color: "purple"}}>Search For A Guardian</h1> : null}
             {(this.props.user) ? <Search id="search" handleSubmit={this.handleSubmit} handleChange={this.handleChange} /> : null}
             <br/>
             <br/>
             {(this.state.searched) ? <button onClick={this.addFriend}>Add to Fireteam </button> : null}
             <br/>
             <br/>
-            {(this.props.user) ? <div id="toggle-friend-button" class="ui buttons">
+            {(this.props.friendStats) ? <div id="toggle-friend-button" class="ui buttons">
               <button onClick={this.handleStats} class="ui button">Stats</button>
               <div class="or"></div>
               <button onClick={this.handleEquipment} class="ui button">Equipment</button>

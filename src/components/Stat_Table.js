@@ -7,6 +7,9 @@ let style = {
 
 const Stat_Table = ({statsObj, userObj}) => {
   const PvP_Header = statsObj.mergedAllCharacters.results.allPvP
+  if (statsObj === undefined){
+    return null
+  }
   return (
   <Table definition style={style}>
   <Table.Header>

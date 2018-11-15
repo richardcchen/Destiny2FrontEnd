@@ -30,14 +30,16 @@ class Item extends Component {
   }
 
   render(){
+    console.log(this.props);
     return(
         <Card>
-          <Modal trigger={<Image src={`${bungie}${this.props.item.invObj.icon}`} />}>
+          <Modal trigger={<Image id="card-image" src={`${bungie}${this.props.item.invObj.icon}`} />}>
             <Modal.Content image style={style}>
-              <Image wrapped size='medium' src={`${bungie}${this.props.item.invObj.screenshot}`} />
+              <Image id="modal-img" wrapped size='medium' src={`${bungie}${this.props.item.invObj.screenshot}`} />
               <Modal.Description>
                 <Header>{this.props.item.invObj.name}</Header>
                 <p>{this.props.item.bucketObj.name}</p>
+                <p>lvl {this.props.item.instanceObj.level}</p>
                 <p>{this.props.item.invObj.itemTypeAndTierDisplayName}</p>
                 <p>{this.props.item.invObj.description}</p>
                 <Button onClick={this.commentOn}>Drop a Comment!</Button>
@@ -48,8 +50,8 @@ class Item extends Component {
           <Card.Content>
             <Card.Header>{this.props.item.invObj.name}</Card.Header>
             <Card.Meta>
-              <div className='date'>{this.props.item.invObj.itemTypeAndTierDisplayName}</div>
-              <div className='date'>{this.props.item.instanceObj.level}</div>
+              <div>{this.props.item.invObj.itemTypeAndTierDisplayName}</div>
+              <div> lvl {this.props.item.instanceObj.level}</div>
             </Card.Meta>
           </Card.Content>
         </Card>

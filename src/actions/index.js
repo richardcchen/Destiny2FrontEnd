@@ -90,6 +90,10 @@ export function friendShow(id, system){
       return (Adapter.getUserObj(id, system))
     })
     .then(data => {
+      if (data.Response === undefined){
+        window.alert("Account does not exist!")
+        return {}
+      }
       dispatch({type:FRIEND_OBJ, payload: data.Response.profile.data})
       const friendObj = data.Response.profile.data
       const friendId = friendObj.userInfo.membershipId
