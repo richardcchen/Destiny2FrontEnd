@@ -7,7 +7,7 @@ import { fetchUser } from '../actions/index'
 import Adapter from '../Adapter'
 import { ComponentType } from 'the-traveler/build/enums'
 import ReactRevealText from 'react-reveal-text'
-
+import Title from '../components/Title'
 
 
 
@@ -99,6 +99,7 @@ class Login extends Component {
       <Grid.Column width={5}>
       </Grid.Column>
     </Grid>
+  <Title/>
   </div>
 
 

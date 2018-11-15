@@ -14,6 +14,7 @@ import Friends from './Redux/Friends'
 import CreateAccount from './components/CreateAccount'
 import { connect } from 'react-redux';
 import {createBrowserHistory} from 'history'
+import Title from './components/Title'
 
 const hist = createBrowserHistory()
 
@@ -34,6 +35,7 @@ class App extends Component {
             <Route hist={hist} exact path="/equipment" component={Equipment} />
             <Route hist={hist} exact path="/friends" component={Friends} />
             <Route exact path="/Oauth" component={Oauth} />
+            <Route exact path="/title" component={Title} />
           </Switch>
       </div>
       </div>
