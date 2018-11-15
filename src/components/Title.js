@@ -43,7 +43,7 @@ function Title() {
   return (
     <div className="contain" id = "title">
       <SplitText initialPose="exit" pose="enter" wordPoses={wordPoses} charPoses={charPoses}>
-        Destiny's Guardians App
+        Play With Me
       </SplitText>
     </div>
   );

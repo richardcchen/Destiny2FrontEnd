@@ -2,7 +2,9 @@ import React from 'react'
 import {Table} from 'semantic-ui-react'
 
 let style = {
-  opacity: 0.6
+  opacity: 0.6,
+  backgroundColor: 'lightgoldenrodyellow',
+  fontSize: 'large'
 }
 
 const Stat_Table = ({statsObj, userObj}) => {

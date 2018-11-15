@@ -99,7 +99,7 @@ class Login extends Component {
       <Grid.Column width={5}>
       </Grid.Column>
     </Grid>
-  <Title/>
+    <Image id="title-image" src='https://d4kkpd69xt9l7.cloudfront.net/sys-master/images/hac/hc8/8889263783966' size='large' />
   </div>
 
 
