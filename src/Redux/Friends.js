@@ -62,7 +62,7 @@ class Friends extends Component {
             {(this.props.user) ? <Search id="search" handleSubmit={this.handleSubmit} handleChange={this.handleChange} /> : null}
             <br/>
             <br/>
-            {(this.state.searched) ? <button onClick={this.addFriend}>Add to Fireteam </button> : null}
+            {(this.state.searched) ? <button id="add-to-fireteam" onClick={this.addFriend}>Add to Fireteam </button> : null}
             <br/>
             <br/>
             {(this.props.friendStats) ? <div id="toggle-friend-button" class="ui buttons">

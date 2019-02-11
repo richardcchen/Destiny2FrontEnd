@@ -7,6 +7,7 @@ import {Grid, Button} from 'semantic-ui-react'
 import Adapter from '../Adapter'
 import ItemFeed from './ItemFeed'
 import MenuButtons from '../components/MenuButtons'
+import { fetchEquipment} from '../actions/index'
 
 let style = {
   "padding-left": "5rem"
@@ -46,4 +47,4 @@ function mapStatetoProps(state) {
   }
 }
 
-export default connect(mapStatetoProps)(Profile)
+export default connect(mapStatetoProps, {fetchEquipment})(Profile)

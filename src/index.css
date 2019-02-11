@@ -157,7 +157,7 @@ code {
 }
 
 #friend-col-2{
-  left: 4vh;
+  left: 1vh;
 }
 
 #toggle-friend-button{
@@ -169,7 +169,7 @@ code {
 }
 
 #card-image {
-  min-height: 13em;
+  min-height: 11em;
 }
 
 .gif_player img {
@@ -202,6 +202,16 @@ display: flex;
 }
 
 #title-image{
-  left: 7em;
-  top: 5em;
+  left: 4em;
+  top: 3em;
+}
+
+#fire-team-chat {
+  font-weight: 1000;
+  color: #585877;
+}
+
+#add-to-fireteam {
+  opacity: .5;
+  color: "grey"
 }

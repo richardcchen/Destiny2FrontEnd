@@ -10,11 +10,9 @@ let style = {
 const Stat_Table = ({statsObj, userObj}) => {
   const PvP_Header = statsObj.mergedAllCharacters.results.allPvP
   const PvE_Header = statsObj.mergedAllCharacters.results.allPvE.allTime
-  debugger
   if (statsObj === undefined){
     return null
   }
-  debugger
   return (
   <Table definition style={style}>
   <Table.Header>

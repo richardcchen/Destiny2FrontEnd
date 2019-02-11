@@ -47,7 +47,6 @@ class Login extends Component {
         if (data.password === "pass"){
           this.props.fetchUser(this.state.username, this.state.password, this.state.system)
           //history.push here
-          console.log(this.props);
           this.props.history.push('/profile')
           // this.setState({isClicked: true})
         } else {

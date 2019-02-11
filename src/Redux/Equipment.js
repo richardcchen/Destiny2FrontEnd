@@ -10,7 +10,6 @@ import Loading from '../components/Loading'
 
 class Equipment extends Component {
 
-  //testing
 
   componentDidMount(){
     if (this.props.user){
