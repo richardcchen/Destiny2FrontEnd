@@ -10,6 +10,7 @@ import ReactRevealText from 'react-reveal-text'
 import Title from '../components/Title'
 
 
+//testing
 
 let style = {
   color: '#8c7055'
