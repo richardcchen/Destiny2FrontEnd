@@ -30,7 +30,7 @@ class Adapter {
     }
 
     static updateUser(userObj){
-      fetch(`https://destiny2be.herokuapp.com/api/v1/users/login`, {
+      fetch(`http://destiny2be.herokuapp.com/api/v1/users/login`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
@@ -41,7 +41,7 @@ class Adapter {
     }
 
     static createUser(username, newUserId, newUserCharArray, system, pw){
-      fetch(`https://destiny2be.herokuapp.com/api/v1/users/createuser`, {
+      fetch(`http://destiny2be.herokuapp.com/api/v1/users/createuser`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
@@ -53,7 +53,7 @@ class Adapter {
 
     static addFriend(userObj, friendObj){
       return(
-      fetch(`https://destiny2be.herokuapp.com/api/v1/users/addFriend`, {
+      fetch(`http://destiny2be.herokuapp.com/api/v1/users/addFriend`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
@@ -64,7 +64,7 @@ class Adapter {
     }
 
     static getFriends(userObj){
-        return ( fetch(`https://destiny2be.herokuapp.com/api/v1/users/getFriends`, {
+        return ( fetch(`http://destiny2be.herokuapp.com/api/v1/users/getFriends`, {
           method: 'POST',
           headers: {
             "Accept": 'application/json',
@@ -78,7 +78,7 @@ class Adapter {
 
 
     static receivedToken(){
-      fetch(`https://destiny2be.herokuapp.com/api/v1/users/receivedToken`)
+      fetch(`http://destiny2be.herokuapp.com/api/v1/users/receivedToken`)
     }
 
     static getCharItems(char_num, userObj, id, type){
@@ -108,7 +108,7 @@ class Adapter {
     }
 
     static searchManifest(items, id, system){
-      return (fetch(`https://destiny2be.herokuapp.com/api/v1/items/getItems`, {
+      return (fetch(`http://destiny2be.herokuapp.com/api/v1/items/getItems`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
@@ -120,7 +120,7 @@ class Adapter {
 
     static searchManifest2(items, id, system){
       // debugger
-      return (fetch(`https://destiny2be.herokuapp.com/api/v1/items/getVault`, {
+      return (fetch(`http://destiny2be.herokuapp.com/api/v1/items/getVault`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
@@ -160,7 +160,7 @@ class Adapter {
   }
 
   static saveComment(comment, item, user, owner){
-    return (fetch(`https://destiny2be.herokuapp.com/api/v1/items/leaveComment`, {
+    return (fetch(`http://destiny2be.herokuapp.com/api/v1/items/leaveComment`, {
       method: 'POST',
       headers: {
         "Accept": 'application/json',
@@ -171,7 +171,7 @@ class Adapter {
   }
 
   static fetchFeed(id){
-    return fetch(`https://destiny2be.herokuapp.com/api/v1/users/feed`, {
+    return fetch(`http://destiny2be.herokuapp.com/api/v1/users/feed`, {
       method: 'POST',
       headers: {
         "Accept": 'application/json',
@@ -182,7 +182,7 @@ class Adapter {
   }
 
   static checkUserDB(username, pw, system){
-    return fetch(`https://destiny2be.herokuapp.com/api/v1/users/checkuser`, {
+    return fetch(`http://destiny2be.herokuapp.com/api/v1/users/checkuser`, {
       method: 'POST',
       headers: {
         "Accept": 'application/json',
