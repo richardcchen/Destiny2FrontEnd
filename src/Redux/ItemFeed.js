@@ -1,7 +1,6 @@
 import React from 'react';
 import {Component} from 'react'
 import { connect } from 'react-redux'
-import { Feed, Icon } from 'semantic-ui-react'
 import {fetchFeed} from '../actions/index'
 import EachFeed from '../components/EachFeed'
 

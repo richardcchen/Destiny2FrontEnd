@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import Test from './components/Test'
 import { Route, Switch, withRouter} from 'react-router-dom';
 import NavBar from './components/NavBar'
-import MenuButtons from './components/MenuButtons'
+// import MenuButtons from './components/MenuButtons'
 import Login from './Redux/Login'
-import ReduxTest from './Redux/ReduxTest'
 import Profile from './Redux/Profile'
 import Equipment from './Redux/Equipment'
-import ItemFeed from './Redux/ItemFeed'
 import Friends from './Redux/Friends'
 import CreateAccount from './components/CreateAccount'
 import { connect } from 'react-redux';

@@ -7,7 +7,7 @@ let style = {
   fontSize: 'large'
 }
 
-const Stat_Table = ({statsObj, userObj}) => {
+const StatTable = ({statsObj, userObj}) => {
   const PvP_Header = statsObj.mergedAllCharacters.results.allPvP
   const PvE_Header = statsObj.mergedAllCharacters.results.allPvE.allTime
   if (statsObj === undefined){
@@ -144,4 +144,4 @@ const Stat_Table = ({statsObj, userObj}) => {
 )
 
 }
-export default Stat_Table
+export default StatTable

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Tab, Button } from 'semantic-ui-react';
+import { Card, Tab } from 'semantic-ui-react';
 import Item from "./Item"
 import Filter from "./Filter"
 

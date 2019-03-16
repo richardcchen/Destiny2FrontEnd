@@ -1,5 +1,4 @@
 import Adapter from "../Adapter"
-const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 
 export const FETCH_USER = 'FETCH_USER'
 export const FETCH_EQUIPMENT = 'FETCH_EQUIPMENT'

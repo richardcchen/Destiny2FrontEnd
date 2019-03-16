@@ -1,5 +1,4 @@
 import React from 'react'
-import ReduxTest from "./ReduxTest"
 
 let style = {
   color: '#585877'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button } from 'semantic-ui-react'
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 
 
@@ -16,13 +16,12 @@ class MenuButtons extends Component {
     }
   }
 
-
  profile = () => {
    this.props.history.push('/profile')
  }
 
   render() {
-    const activeItem = window.location.href
+    // const activeItem = window.location.href
     return (
     <Button.Group>
       <Button onClick={this.profile}>Profile</Button>

@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider, connect } from 'react-redux'
+import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux';
-import ReduxPromise from 'redux-promise'
+// import ReduxPromise from 'redux-promise'
 import thunk from 'redux-thunk'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './reducers';
-import { BrowserRouter, Route, Switch, withRouter} from 'react-router-dom'
-import Login from "./Redux/Login"
-import NavBar from './components/NavBar'
-import ReduxTest from './Redux/ReduxTest'
+import { BrowserRouter} from 'react-router-dom'
 
 
 const store=createStore(reducers,compose(applyMiddleware(thunk),
@@ -29,11 +26,11 @@ ReactDOM.render(
   </Provider>
   , document.querySelector('.container'));
 
-  const mapStatetoProps = (state) => {
-    return {
-      username: state.username
-    }
-  }
+  // const mapStatetoProps = (state) => {
+  //   return {
+  //     username: state.username
+  //   }
+  // }
 
 // export default withRouter(connect(mapStatetoProps)(index))
 // If you want your app to work offline and load faster, you can change

@@ -1,6 +1,6 @@
 import { FETCH_EQUIPMENT, FETCH_EQUIPMENT_2, FETCH_EQUIPMENT_3, SHOW_FILTERED, ALL_ITEMS, FETCH_VAULT, LOAD_FILTERED, FRIEND_EQUIPMENT_1, FRIEND_EQUIPMENT_2, FRIEND_EQUIPMENT_3, FRIEND_FILTERED, FRIEND_ALL_ITEMS, CLEAR_FRIEND} from '../actions/index'
 
-export default function EquipmentReducer(state = {equipment: [], filtered: [], allItems: [], filtered: [], friend_filtered: [], friend_all_items: []}, action) {
+export default function EquipmentReducer(state = {equipment: [], filtered: [], allItems: [], friend_filtered: [], friend_all_items: []}, action) {
   switch(action.type){
     case FETCH_EQUIPMENT:
       return {...state, equipment: action.payload.data}

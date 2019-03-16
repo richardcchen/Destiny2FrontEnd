@@ -3,10 +3,8 @@ import {Component} from 'react'
 import { connect } from 'react-redux'
 import Welcome from './Welcome'
 import Stats from '../components/Stats'
-import {Grid, Button} from 'semantic-ui-react'
-import Adapter from '../Adapter'
+import {Grid} from 'semantic-ui-react'
 import ItemFeed from './ItemFeed'
-import MenuButtons from '../components/MenuButtons'
 import { fetchEquipment} from '../actions/index'
 
 let style = {

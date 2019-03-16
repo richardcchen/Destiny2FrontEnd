@@ -1,10 +1,10 @@
 import React from 'react';
 import {Component} from 'react'
 import { connect } from 'react-redux'
-import {Button, Grid} from 'semantic-ui-react'
+import {Grid} from 'semantic-ui-react'
 import Adapter from '../Adapter'
 import Search from '../components/Search'
-import Stat_Table from '../components/Stat_Table'
+import StatTable from '../components/StatTable'
 import FriendsList from './FriendsList'
 import FriendEquipment from './FriendEquipment'
 import {friendShow, loadFriendsList, fetchFriendEquipment} from '../actions/index'
@@ -20,7 +20,7 @@ class Friends extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.setState({searched: true})
-    const urlName = Adapter.getProfileName(this.state.username)
+    Adapter.getProfileName(this.state.username)
     .then(data => {
       if (JSON.stringify(data.Response) === "[]"){
         window.alert("Sorry this username was not found")
@@ -28,7 +28,6 @@ class Friends extends Component {
       else {
         const searchId = data.Response[0].membershipId
         const searchSystem = data.Response[0].membershipType
-        const searchdisplayName = data.Response[0].displayName
         this.props.friendShow(searchId, searchSystem)
       }
     })
@@ -71,7 +70,7 @@ class Friends extends Component {
               <button onClick={this.handleEquipment} class="ui button">Equipment</button>
             </div> : null}
             {(this.state.view) ?
-              ((this.props.friendObj) ? <Stat_Table id="friend-stats" statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null)
+              ((this.props.friendObj) ? <StatTable id="friend-stats" statsObj={this.props.friendStats} userObj={this.props.friendObj} /> : null)
               :
               <FriendEquipment />}
           </Grid.Column>

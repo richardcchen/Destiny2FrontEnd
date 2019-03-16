@@ -5,9 +5,6 @@ import SystemSelect from '../components/SystemSelect'
 import { Redirect } from 'react-router-dom';
 import { fetchUser } from '../actions/index'
 import Adapter from '../Adapter'
-import { ComponentType } from 'the-traveler/build/enums'
-import ReactRevealText from 'react-reveal-text'
-import Title from '../components/Title'
 
 
 //testing

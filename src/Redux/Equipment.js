@@ -1,9 +1,8 @@
 import React from 'react';
 import {Component} from 'react'
 import { connect } from 'react-redux'
-import { fetchUser, fetchEquipment, showFiltered} from '../actions/index'
+import { fetchEquipment, showFiltered} from '../actions/index'
 import ItemList from '../components/ItemList'
-import Filter from '../components/Filter'
 import Loading from '../components/Loading'
 
 

@@ -3,7 +3,6 @@ import {Button, Form, Grid} from 'semantic-ui-react'
 import SystemSelect from '../components/SystemSelect'
 import Adapter from '../Adapter'
 import { Redirect } from 'react-router-dom';
-import Loading from '../components/Loading'
 
 
 let style = {
@@ -69,7 +68,7 @@ class CreateAccount extends Component {
               })
 
             }
-          })        
+          })
         }
     })
     // Adapter.getProfileName(this.state.username)
@@ -99,7 +98,7 @@ class CreateAccount extends Component {
   }
 
   errorCheck = () => {
-    if (this.state.password != this.state.password2){
+    if (this.state.password !== this.state.password2){
       window.alert("Passwords Do Not Match")
     } else if(this.state.password.length < 3){
       window.alert("Password needs to be greater than 3 characters")
@@ -116,7 +115,6 @@ class CreateAccount extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
         <div id="create-account">
           <Grid>

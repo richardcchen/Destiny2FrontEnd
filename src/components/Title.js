@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import SplitText from 'react-pose-text';
 
 export default Title

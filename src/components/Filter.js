@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
-import { Input, Form } from 'semantic-ui-react'
-import ReduxTest from '../Redux/ReduxTest'
+import { Input } from 'semantic-ui-react'
 
-let style={
-  opacity: .5
-}
 
 class Filter extends Component {
 

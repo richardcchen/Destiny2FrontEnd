@@ -1,10 +1,7 @@
 import React from 'react';
 import {Component} from 'react'
 import { connect } from 'react-redux'
-import Welcome from './Welcome'
-import Stats from '../components/Stats'
 import {List} from 'semantic-ui-react'
-import Adapter from '../Adapter'
 import { loadFriendsList, friendShow} from '../actions/index'
 
 

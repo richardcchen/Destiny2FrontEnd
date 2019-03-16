@@ -3,7 +3,6 @@ import {Component} from 'react'
 import { connect } from 'react-redux'
 import { fetchFriendEquipment, showFiltered} from '../actions/index'
 import FriendItemList from '../components/FriendItemList'
-import Filter from '../components/Filter'
 import Loading from '../components/Loading'
 
 

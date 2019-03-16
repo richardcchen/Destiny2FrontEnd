@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { TextArea, Button, Image, Modal, Header } from 'semantic-ui-react';
-import ItemList from './Item'
+import { TextArea, Button } from 'semantic-ui-react';
+// import ItemList from './Item'
 
 class ItemComment extends Component {
   constructor(props){
@@ -23,7 +23,7 @@ class ItemComment extends Component {
 
     return (
       <form class='ui form'>
-        <TextArea onChange={this.onChange} placeholder='Comment' rows='3' style='resize:' />
+        <TextArea onChange={this.onChange} placeholder='Comment' />
         <Button onClick={this.onSubmit}>Submit</Button>
       </form>
     )
