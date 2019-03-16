@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { Input, Form } from 'semantic-ui-react'
 
 class Search extends Component {
   render(){

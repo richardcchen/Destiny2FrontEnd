@@ -9,7 +9,6 @@ import ReduxTest from './Redux/ReduxTest'
 import Profile from './Redux/Profile'
 import Equipment from './Redux/Equipment'
 import ItemFeed from './Redux/ItemFeed'
-import Oauth from './Redux/Oauth'
 import Friends from './Redux/Friends'
 import CreateAccount from './components/CreateAccount'
 import { connect } from 'react-redux';
@@ -34,7 +33,6 @@ class App extends Component {
             <Route hist={hist} exact path="/profile" component={Profile} />
             <Route hist={hist} exact path="/equipment" component={Equipment} />
             <Route hist={hist} exact path="/friends" component={Friends} />
-            <Route exact path="/Oauth" component={Oauth} />
             <Route exact path="/title" component={Title} />
           </Switch>
       </div>

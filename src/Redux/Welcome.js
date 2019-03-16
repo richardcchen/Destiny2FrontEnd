@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import ReduxTest from "./ReduxTest"
 
 let style = {

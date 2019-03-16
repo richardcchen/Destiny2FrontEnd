@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Adapter from "../Adapter"
 const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 

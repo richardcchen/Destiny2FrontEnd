@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, TextArea, Card, Icon, Button, Label, Image, Modal, Header } from 'semantic-ui-react';
+import { TextArea, Button, Image, Modal, Header } from 'semantic-ui-react';
 import ItemList from './Item'
 
 class ItemComment extends Component {

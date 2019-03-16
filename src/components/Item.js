@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Card, Icon, Button, Label, Image, Modal, Header } from 'semantic-ui-react';
-import ItemList from './ItemList'
+import { Card, Button, Image, Modal, Header } from 'semantic-ui-react';
+// import ItemList from './ItemList'
 import ItemComment from './ItemComment'
 import Adapter from '../Adapter'
 import { connect } from 'react-redux'
