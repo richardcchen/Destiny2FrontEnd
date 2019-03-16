@@ -30,7 +30,7 @@ export default class Oauth extends Component {
     return(
       <div>
         <h1>Oauth</h1>
-        <Button as="a" href="https://destiny2be.herokuapp.com/api/v1/users/loginAuth">Get Access</Button>
+        <Button as="a" href="http://localhost:3000/api/v1/users/loginAuth">Get Access</Button>
         <Button onClick={this.getToken}>getToken</Button>
       </div>
     )

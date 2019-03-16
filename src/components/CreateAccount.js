@@ -46,30 +46,50 @@ class CreateAccount extends Component {
   onSubmit = (event) => {
     event.preventDefault()
     this.errorCheck()
-    Adapter.checkUserDB(this.state.username)
+    Adapter.checkCreateUser(this.state.username)
     .then(data => {
         if (data.data==="fail"){
           window.alert("Your username is already taken. Please enter a valid username")
         }
-    })
-    Adapter.getProfileName(this.state.username)
-    .then(data => {
-      if (data.Response.length === 0){
-        window.alert("Your account was not found on Bungie. Please try again")
-        console.log(this.state);
-      } else {
-        this.setState({newUserId: data.Response[0].membershipId})
-        Adapter.getUserObj(this.state.newUserId, this.state.system)
-        .then(data => {
-          this.setState({newUserCharArray: data.Response.profile.data.characterIds})
-        }).then(() => {
-          Adapter.createUser(this.state.username, this.state.newUserId, this.state.newUserCharArray, this.state.system, this.state.password)
-          this.setState({isClicked: true})
-          window.alert("Username successfully created!")
-        })
+        else {
+          Adapter.getProfileName(this.state.username)
+          .then(data => {
+            if (data.Response.length === 0){
+              window.alert("Your account was not found on Bungie. Please try again")
+              console.log(this.state);
+            } else {
+              this.setState({newUserId: data.Response[0].membershipId})
+              Adapter.getUserObj(this.state.newUserId, this.state.system)
+              .then(data => {
+                this.setState({newUserCharArray: data.Response.profile.data.characterIds})
+              }).then(() => {
+                Adapter.createUser(this.state.username, this.state.newUserId, this.state.newUserCharArray, this.state.system, this.state.password)
+                this.setState({isClicked: true})
+                window.alert("Username successfully created!")
+              })
 
-      }
+            }
+          })        
+        }
     })
+    // Adapter.getProfileName(this.state.username)
+    // .then(data => {
+    //   if (data.Response.length === 0){
+    //     window.alert("Your account was not found on Bungie. Please try again")
+    //     console.log(this.state);
+    //   } else {
+    //     this.setState({newUserId: data.Response[0].membershipId})
+    //     Adapter.getUserObj(this.state.newUserId, this.state.system)
+    //     .then(data => {
+    //       this.setState({newUserCharArray: data.Response.profile.data.characterIds})
+    //     }).then(() => {
+    //       Adapter.createUser(this.state.username, this.state.newUserId, this.state.newUserCharArray, this.state.system, this.state.password)
+    //       this.setState({isClicked: true})
+    //       window.alert("Username successfully created!")
+    //     })
+    //
+    //   }
+    // })
   }
 
   redirect = () => {

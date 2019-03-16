@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ItemList from "./ItemList"
 import Filter from "./Filter"
-const endpoint = "https://destiny2be.herokuapp.com/api/v1/users"
+const endpoint = "http://localhost:3000/api/v1/users"
 const apiKey = process.env.REACT_APP_DESTINY2_API_KEY
 
 
@@ -57,7 +57,7 @@ class Test extends Component {
       })
     })
     .then(() => {
-      return fetch(`https://destiny2be.herokuapp.com/api/v1/items/getItems`, {
+      return fetch(`http://localhost:3000/api/v1/items/getItems`, {
         method: 'POST',
         headers: {
           "Accept": 'application/json',
