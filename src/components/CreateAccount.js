@@ -42,6 +42,16 @@ class CreateAccount extends Component {
     }
   }
 
+  sortSystem = (response, system) => {
+    let memberId = response[0]["membershipId"]
+    response.forEach((sys) => {
+      if (sys.membershipType == system){
+        memberId = sys.membershipId
+      }
+    })
+    return memberId
+  }
+
   onSubmit = (event) => {
     event.preventDefault()
     this.errorCheck()
@@ -55,10 +65,11 @@ class CreateAccount extends Component {
           .then(data => {
             if (data.Response.length === 0){
               window.alert("Your account was not found on Bungie. Please try again")
-              console.log(this.state);
             } else {
-              this.setState({newUserId: data.Response[0].membershipId})
-              Adapter.getUserObj(this.state.newUserId, this.state.system)
+              let memberId = this.sortSystem(data.Response, this.state.system)
+              console.log(memberId);
+              this.setState({newUserId: memberId})
+              return (Adapter.getUserObj(this.state.newUserId, this.state.system))
               .then(data => {
                 this.setState({newUserCharArray: data.Response.profile.data.characterIds})
               }).then(() => {

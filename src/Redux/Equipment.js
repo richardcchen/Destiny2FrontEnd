@@ -16,12 +16,12 @@ class Equipment extends Component {
     }
   }
 
-  handleFilter = (event) => {
-    const filteredEquipment = this.props.allItems.filter(item => {
-      return item.invObj.name.toLowerCase().includes(event.target.value.toLowerCase())
-    })
-    this.props.showFiltered(filteredEquipment)
-  }
+  // handleFilter = (event) => {
+  //   const filteredEquipment = this.props.allItems.filter(item => {
+  //     return item.invObj.name.toLowerCase().includes(event.target.value.toLowerCase())
+  //   })
+  //   this.props.showFiltered(filteredEquipment)
+  // }
 
   render(){
     return (

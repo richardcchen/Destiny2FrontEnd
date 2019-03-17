@@ -20,6 +20,7 @@ class Adapter {
     }
 
     static getUserObj(id, system){
+      console.log("adapter id:", id);
       return (
         fetch(`https://www.bungie.net/Platform/Destiny2/${system}/Profile/${id}/?components=100`, {
           headers: {
@@ -178,7 +179,7 @@ class Adapter {
         "Content-Type": 'application/json'
       },
       body: JSON.stringify({id})
-    }).then(res =>res.json())
+    }).then(res => res.json())
   }
 
   static checkUserDB(username, pw, system){

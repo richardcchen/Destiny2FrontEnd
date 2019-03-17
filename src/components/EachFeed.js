@@ -27,7 +27,6 @@ class EachFeed extends Component {
   }
 
   render(){
-    console.log("feed", this.props);
     return (
       <Feed>
         {this.props.feed.map(eachFeed => (this.eachFeed(eachFeed)))}

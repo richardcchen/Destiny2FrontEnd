@@ -28,7 +28,7 @@ render(){
     { menuItem: 'Character 1', render: () =>
       (this.props.friend_equipment_1) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.friend_equipment_1).map(item => <Item item={item}/>)}
+          {this.filterArray(this.props.friend_equipment_1).map(item => <Item key={`c1+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -36,7 +36,7 @@ render(){
     { menuItem: 'Character 2', render: () =>
       (this.props.friend_equipment_2) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.friend_equipment_2).map(item => <Item item={item}/>)}
+          {this.filterArray(this.props.friend_equipment_2).map(item => <Item key={`c2+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -44,7 +44,7 @@ render(){
     { menuItem: 'Character 3', render: () =>
       (this.props.friend_equipment_3) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.friend_equipment_3).map(item => <Item item={item}/>)}
+          {this.filterArray(this.props.friend_equipment_3).map(item => <Item key={`c3+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -52,7 +52,7 @@ render(){
     { menuItem: 'All', render: () =>
       (this.props.friend_all_items) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.friend_all_items).map(item => <Item item={item}/>)}
+          {this.filterArray(this.props.friend_all_items).map(item => <Item key={`all+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null

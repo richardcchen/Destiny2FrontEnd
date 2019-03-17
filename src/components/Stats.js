@@ -2,14 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import StatTable from './StatTable'
 
-// let style = {
-//   // width: "100%",
-//   // height: "750px",
-//   // overflow: 'hidden',
-//   backGroundColor: "transparent",
-//   opacity: 0
-// }
-
 
 class Stats extends Component {
   render(){

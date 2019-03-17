@@ -29,7 +29,7 @@ render(){
     { menuItem: 'Character 1', render: () =>
       (this.props.equipment) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.equipment).map(item => <Item key={item.invObj.name} item={item}/>)}
+          {this.filterArray(this.props.equipment).map(item => <Item key={`c1+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -37,7 +37,7 @@ render(){
     { menuItem: 'Character 2', render: () =>
       (this.props.equipment_2) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.equipment_2).map(item => <Item key={item.invObj.name} item={item}/>)}
+          {this.filterArray(this.props.equipment_2).map(item => <Item key={`c2+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -45,7 +45,7 @@ render(){
     { menuItem: 'Character 3', render: () =>
       (this.props.equipment_3) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.equipment_3).map(item => <Item key={item.invObj.name} item={item}/>)}
+          {this.filterArray(this.props.equipment_3).map(item => <Item key={`c3+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -53,7 +53,7 @@ render(){
     { menuItem: 'Vault', render: () =>
       (this.props.vault) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.vault.data).map(item => <Item key={item.invObj.name} item={item}/>)}
+          {this.filterArray(this.props.vault.data).map(item => <Item key={`v+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
@@ -61,7 +61,7 @@ render(){
     { menuItem: 'All', render: () =>
       (this.props.allItems) ?
         <Card.Group id="items" itemsPerRow={8}>
-          {this.filterArray(this.props.allItems).map(item => <Item key={item.invObj.name} item={item}/>)}
+          {this.filterArray(this.props.allItems).map(item => <Item key={`all+${item.invObj.name}`} item={item}/>)}
         </Card.Group>
         :
         null
