@@ -8,7 +8,7 @@ class EachFeed extends Component {
 
   eachFeed = (eachFeed) => {
     return (
-      <Feed.Event>
+      <Feed.Event key={eachFeed.comment}>
         <Feed.Content>
             <Feed.Label>
               <img src={eachFeed.iconUrl} alt="Icon"/>

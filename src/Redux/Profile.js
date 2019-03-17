@@ -8,7 +8,7 @@ import ItemFeed from './ItemFeed'
 import { fetchEquipment} from '../actions/index'
 
 let style = {
-  "padding-left": "5rem"
+  // "padding-left": "5rem"
 }
 
 class Profile extends Component {
